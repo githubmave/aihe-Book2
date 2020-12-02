@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
   console.log("fruit route getFruits:", "fruits2")
   db.getFruits()
     .then(results => {
-      console.log("fruit route getFruits:", results)
-      //res.json({ fruits: results.map(fruit => fruit.name) })
+      //console.log("fruit route getFruits:", results)
+      res.json({ fruits: results.map(fruit => fruit.name) })
       return null
     })
     .catch(err => {
