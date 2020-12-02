@@ -1,4 +1,3 @@
-
 import { postVideo } from '../apis'
 export const ADD_VIDEO = 'ADD_VIDEO'
 
@@ -6,11 +5,7 @@ export function addVideo(video) {
   return { type: ADD_VIDEO, video: video }
 }
 
-export function saveVideo(){
-  
-}
-
-
+export function saveVideo() {}
 
 import { getFruits } from '../apis/fruits'
 
