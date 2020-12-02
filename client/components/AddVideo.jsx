@@ -13,33 +13,28 @@ class AddVideo extends React.Component {
   handleTitleChange = (e) => {
     this.setState({ title: e.target.value })
   }
+
   handleLinkChange = (e) => {
     this.setState({ link: e.target.value })
   }
 
-  handleTitleSubmit = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault()
-    const action = saveVideo(this.state.title)
+    const action = saveVideo(this.state.title, this.state.link)
     this.props.dispatch(action)
-    this.setState({ title: '' })
-  }
-  handleLinkSubmit = (e) => {
-    e.preventDefault()
-    const action = saveVideo(this.state.link)
-    this.props.dispatch(action)
-    this.setState({ link: '' })
+    this.setState({ title: '', link: '' })
   }
 
   render() {
     return (
-      <form onSubmit={this.handleTitleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <input
           onChange={this.handleTitleChange}
           value={this.state.title}
           className="new-video"
         />
         <input
-          onChange={this.handleLinkSubmit}
+          onChange={this.handleLinkChange}
           value={this.state.link}
           className="new-video"
         />
