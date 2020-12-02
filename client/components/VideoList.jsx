@@ -22,7 +22,7 @@ class VideoList extends React.Component {
          return(
 
               <ul>
-                    {this.props.videos.map( (video,i) => (<li key = {i}> {video.video_name}  </li>))}                
+                    {this.props.videos.map( (video,i) => (<li key = {i}> {video.video_category}  </li>))}                
               </ul>
 
          )

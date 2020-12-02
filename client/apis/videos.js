@@ -2,7 +2,7 @@ import request from 'superagent'
 
 const rootUrl = '/api/v1/videos'
 
-export  function fetchVideos(){
+export function fetchVideos(){
   console.log("api get video 1")
     return request 
       
