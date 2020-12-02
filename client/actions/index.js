@@ -1,6 +1,17 @@
 import { getFruits } from '../apis/fruits'
 
+export const RECIEVE_VIDEOS = 'RECIEVE_VIDEOS'
+
 export const SET_FRUITS = 'SET_FRUITS'
+
+export const recieveVideos = (videoData) => {
+
+       return {
+         type: RECIEVE_VIDEOS,
+         videoData
+         
+       }
+}
 
 export function setFruits (fruits) {
   return {

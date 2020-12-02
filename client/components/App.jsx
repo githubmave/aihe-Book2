@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+//import Nav from './Nav'
 
-import { fetchFruits } from '../actions'
+import { fetchFruits ,recieveVideos} from '../actions'
 import fetchVideos from '../apis/videos'
 
 export class App extends React.Component {
@@ -15,11 +16,14 @@ export class App extends React.Component {
 
   componentDidMount () {
    // this.props.dispatch(fetchFruits())
+
     fetchVideos()
     //  console.log(res.body)
-      .then (res => {
-        console.log(res)
-        this.setState({videos: res})
+      .then (videoData => {
+        console.log(videoData)
+       // this.setState({videos: res})
+        this.props.dispatch(recieveVideos(videoData))
+        
       })
        // console.log("what is in state") 
       .catch( err => console.log(err))
@@ -36,10 +40,13 @@ export class App extends React.Component {
             <li key={fruit}>{fruit}</li>
           ))}
         </ul> */}
+      <div >
+        {/* <Nav /> */}
+      </div>
 
         <ul>
 
-            {this.state.videos.map( (video,i) => (<li key = {i}> {video.video_name}  </li>))}
+            {this.props.videos.map( (video,i) => (<li key = {i}> {video.video_name}  </li>))}
         </ul>
       </div>
     )
@@ -48,7 +55,8 @@ export class App extends React.Component {
 
 function mapStateToProps (globalState) {
   return {
-    fruits: globalState.fruits
+    //fruits: globalState.fruits,
+    videos: globalState.videos
   }
 }
 
