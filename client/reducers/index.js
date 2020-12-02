@@ -5,5 +5,5 @@ import videos from './videos'
 
 export default combineReducers({
   fruits,
-  videos
+  videos,
 })
