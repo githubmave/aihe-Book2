@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
     .then(videoList=> {
       console.log(videoList)
       res.json(videoList)
+     // res.json({"name":"JV video"})
      
     })
     .catch(err => {
