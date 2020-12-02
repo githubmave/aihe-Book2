@@ -29,4 +29,23 @@ class AddVideo extends React.Component {
     this.props.dispatch(action)
     this.setState({ link: '' })
   }
+
+  render() {
+    return (
+      <form onSubmit={this.handleTitleSubmit}>
+        <input
+          onChange={this.handleTitleChange}
+          value={this.state.title}
+          className="new-video"
+        />
+        <input
+          onChange={this.handleLinkSubmit}
+          value={this.state.link}
+          className="new-video"
+        />
+      </form>
+    )
+  }
 }
+
+export default connect()(AddVideo)
