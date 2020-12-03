@@ -24,6 +24,8 @@ export default class App extends React.Component {
 
               
                 <Route path='/videos/:category' component={VideoNames}/>
+                <Route path='/videos/:category/:name' component={VideoItem}/>
+
               
               {/* <p class="country">
                 <Route path='/answList/:name/:index' component={ShowAnsws} />

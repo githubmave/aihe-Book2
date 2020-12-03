@@ -3,9 +3,6 @@ import {Link, useParams} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
-
-
-
 const VideoNames = (props) => {
     let {category} = useParams()
     console.log("category is: ", category)
@@ -19,8 +16,7 @@ const VideoNames = (props) => {
             <ul>
                 {props.videos.map( (video, i) => {
                         if (video.video_category == category) { 
-                            
-                            return  <li key={i}> <Link to = {`/videos/${video.video_name}`} > {video.video_name}</Link>
+                            return  <li key={i}> <Link to = {`/videos/${video.video_category}/${video.video_name}`} > {video.video_name}</Link>
                                 </li>
                         } 
                     })

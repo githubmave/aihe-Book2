@@ -1,20 +1,31 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link,useParams} from 'react-router-dom'
 import { connect } from 'react-redux'
 
+const VideoItem = (props) => {
 
-
-
-const VideoItem = () => {
-
-
+    let {name} = useParams()
+    console.log("name from Route: ",name)
     return(
-
-        <div >
-
-            <h1 > it is a video</h1>
+        <div>
+            <h1>it is a video item</h1>
+            <ul>
+                {props.videos.map( (video, i) => {
+                    if (video.video_name == name) {    
+                        return <a href={video.video_link}>{video.video_name}</a> 
+                    // return  <a key={i}> <Link to = {`/videos/${video.video_name}`} > {video.video_name}</Link></a>
+                        } 
+                    })
+                }
+            </ul>
         </div>
     )
 }
 
-export default VideoItem
+const mapStateToProps = (globalState) => {
+    return {
+      videos: globalState.videos
+    }
+  }
+  
+  export default connect(mapStateToProps)(VideoItem)
