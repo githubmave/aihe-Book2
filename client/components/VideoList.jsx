@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { receiveVideos } from '../actions'
-import { fetchVideos } from '../apis/videos'
+import { fetchVideos } from '../apis'
 
 class VideoList extends React.Component {
   componentDidMount() {
