@@ -19,9 +19,21 @@ export default class App extends React.Component {
               <Route path="/videos/:category" component={VideoNames} />
               <Route path="/videos/:category/:name" component={VideoItem} />
             </div>
+            <section>
+          <Repos/>
+        </section>
           </div>
         </Router>
       </>
     )
   }
 }
+
+
+function mapStateToProps (globalState) {
+  return {
+    fruits: globalState.fruits
+  }
+}
+
+export default connect(mapStateToProps)(App)
