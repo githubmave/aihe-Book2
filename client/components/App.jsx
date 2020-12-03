@@ -22,9 +22,9 @@ export default class App extends React.Component {
               {/* <Nav /> */}
               <VideoList />
 
-              <p>
+              
                 <Route path='/videos/:category' component={VideoNames}/>
-              </p>
+              
               {/* <p class="country">
                 <Route path='/answList/:name/:index' component={ShowAnsws} />
               </p> */}

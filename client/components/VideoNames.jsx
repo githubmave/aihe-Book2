@@ -8,21 +8,22 @@ import { connect } from 'react-redux'
 
 const VideoNames = (props) => {
     let {category} = useParams()
-    console.log("category", category)
+    console.log("category is: ", category)
 
     return(
 
         <div >
 
-            <h1 > it is a video names</h1>
+            <strong > it is a video names</strong>
 
             <ul>
                 {props.videos.map( (video, i) => {
-                        if (video.video_category == category) {
-                    <li key={i}> <Link to = {`/videos/${video.video_name}`} > {video.video_name}</Link>
-                    </li>
-                        }
-                     } )
+                        if (video.video_category == category) { 
+                            
+                            return  <li key={i}> <Link to = {`/videos/${video.video_name}`} > {video.video_name}</Link>
+                                </li>
+                        } 
+                    })
                 }
             </ul>
         </div>

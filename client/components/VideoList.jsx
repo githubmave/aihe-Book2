@@ -17,6 +17,7 @@ class VideoList extends React.Component {
   }
 
   render() {
+    console.log("videos from videoList",this.props.videos)
     return (
       <>
       <ul>
