@@ -5,12 +5,12 @@ class App extends React.Component {
   render () {
     return (
       <>
-      <header>
-        <h1>Main Page Here</h1>
-      </header>
-      <section>
-        <Repos/>
-      </section>
+        <header>
+          <h1>Main Page Here</h1>
+        </header>
+        <section>
+          <Repos/>
+        </section>
       </>
     )
   }

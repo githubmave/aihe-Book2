@@ -5,13 +5,13 @@ const db = require('../db/connection')
 
 router.get('/', (req, res) => {
   db.listRepos()
-  .then(repos => {
-    res.json(repos)
-    return null
-  })
-  .catch(err => {
-    res.status(500).send(err.message)
-  })
+    .then(repos => {
+      res.json(repos)
+      return null
+    })
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
 })
 
 module.exports = router

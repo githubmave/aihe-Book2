@@ -5,7 +5,7 @@ const connection = knex(config[env])
 
 function listRepos (db = connection) {
   return db('repos')
-  .select()
+    .select()
 }
 
 module.exports = {

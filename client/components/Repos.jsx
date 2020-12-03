@@ -20,9 +20,9 @@ class Repos extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { 
+  return {
     repos: state.repos
-}
+  }
 }
 
 export default connect(mapStateToProps)(Repos)
