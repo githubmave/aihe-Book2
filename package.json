@@ -52,13 +52,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "knex": "^0.21.12",
-<<<<<<< HEAD
-    "nock": "^13.0.5",
-||||||| e4a78cc
-=======
     "lint": "^0.7.0",
     "nock": "^13.0.5",
->>>>>>> 6bd1a3e7a2f01e2a97604968b10e0574791d6a38
     "pg": "^8.5.1",
     "superagent": "^6.1.0",
     "testing-library": "0.0.2"
