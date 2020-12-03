@@ -1,5 +1,5 @@
 import { getAllRepos } from '../apis/repos'
-import { RECEIVE_REPOS } from '../actions/index'
+import { GET_REPOS } from '../actions/index'
 import nock from 'nock'
 
 describe('getAllRepos', () => {
@@ -16,7 +16,7 @@ describe('getAllRepos', () => {
     .then(repos => {
       const action = fakeDispatch.mock.calls[0][0]
       expect(action.repos).toEqual(fakeRepos)
-      expect(action.type).toEqual(RECEIVE_REPOS)
+      expect(action.type).toEqual(GET_REPOS)
       expect(scope.isDone()).toBe(true)
       return null
     })

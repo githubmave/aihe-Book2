@@ -47,7 +47,8 @@
     "knex": "^0.21.12",
     "nock": "^13.0.5",
     "pg": "^8.5.1",
-    "superagent": "^6.1.0"
+    "superagent": "^6.1.0",
+    "testing-library": "0.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",

@@ -9,7 +9,7 @@ class App extends React.Component {
         <h1>Main Page Here</h1>
       </header>
       <section>
-        <Repos />
+        <Repos/>
       </section>
       </>
     )
