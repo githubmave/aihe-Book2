@@ -1,4 +1,4 @@
-import { RECEIVE_VIDEOS } from '../actions/index'
+import { RECEIVE_VIDEOS } from '../actions'
 
 const initialState = []
 
