@@ -45,6 +45,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "knex": "^0.21.12",
+    "nock": "^13.0.5",
     "pg": "^8.5.1",
     "superagent": "^6.1.0"
   },
