@@ -1,8 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { receiveVideos } from '../actions'
-import { fetchVideos } from '../apis'
+import { fetchVideos } from '../apis/index'
+import VideoNames from './VideoNames'
 
 class VideoList extends React.Component {
   componentDidMount() {
@@ -14,12 +16,23 @@ class VideoList extends React.Component {
   }
 
   render() {
+    console.log('videos from videoList', this.props.videos)
     return (
-      <ul>
-        {this.props.videos.map((video, i) => (
-          <li key={i}> {video.video_name} </li>
-        ))}
-      </ul>
+      <>
+        <ul>
+          {this.props.videos.map((video, i) => (
+            <li key={i}>
+              {' '}
+              <Link to={`/videos/${video.video_category}`}>
+                {' '}
+                {video.video_category}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* <VideoNames /> */}
+      </>
     )
   }
 }
