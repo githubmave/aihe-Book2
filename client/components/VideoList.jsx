@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { receiveVideos } from '../actions'
 import { fetchVideos } from '../apis/index'
-import VideoNames from './VideoNames'
+// import VideoNames from './VideoNames'
 
 class VideoList extends React.Component {
   componentDidMount() {
