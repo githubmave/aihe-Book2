@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 
 import { receiveVideos } from '../actions'
 import { fetchVideos } from '../apis/videos'
+import VideoNames from './VideoNames'
+
 
 class VideoList extends React.Component {
   componentDidMount() {
@@ -16,12 +18,16 @@ class VideoList extends React.Component {
 
   render() {
     return (
+      <>
       <ul>
         {this.props.videos.map((video, i) => (
           <li key={i}> <Link to = {`/videos/${video.video_category}`} > {video.video_category}</Link>
           </li>
         ))}
       </ul>
+
+       {/* <VideoNames /> */}
+       </>
     )
   }
 }

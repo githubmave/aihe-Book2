@@ -5,6 +5,9 @@ import {HashRouter as Router, Route, Link} from 'react-router-dom'
 //import { connect } from 'react-redux'
 //import Nav from './Nav'
 import VideoList from './VideoList'
+import VideoItem from './VideoItem'
+import VideoNames from './VideoNames'
+
 
 export default class App extends React.Component {
 
@@ -18,11 +21,16 @@ export default class App extends React.Component {
             <div>
               {/* <Nav /> */}
               <VideoList />
+
+              <p>
+                <Route path='/videos/:category' component={VideoNames}/>
+              </p>
+              {/* <p class="country">
+                <Route path='/answList/:name/:index' component={ShowAnsws} />
+              </p> */}
             </div>
 
-            <ul>
-              {/* {this.props.videos.map( (video,i) => (<li key = {i}> {video.video_name}  </li>))} */}
-            </ul>
+          
           </div>
         </Router>
       </>
