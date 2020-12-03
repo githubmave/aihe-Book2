@@ -1,6 +1,5 @@
 import { connect } from "react-redux"
 import React from 'react'
-import { connect } from 'react-redux'
 
 class Repo extends React.Component {
   render () {

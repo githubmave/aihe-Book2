@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-import fruits from './fruits'
+import repos from './repos'
 
 export default combineReducers({
   repos

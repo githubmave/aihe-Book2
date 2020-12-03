@@ -1,35 +1,19 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import Repos from './Repos'
 
-import { fetchFruits } from '../actions'
-
-export class App extends React.Component {
-  state = {
-    fruits: []
-  }
-
-  componentDidMount () {
-    this.props.dispatch(fetchFruits())
-  }
-
+class App extends React.Component {
   render () {
     return (
-      <div className='app'>
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
-        <ul>
-          {this.props.fruits.map(fruit => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
-      </div>
+      <>
+      <header>
+        <h1>Main Page Here</h1>
+      </header>
+      <section>
+        <Repos />
+      </section>
+      </>
     )
   }
 }
 
-function mapStateToProps (globalState) {
-  return {
-    fruits: globalState.fruits
-  }
-}
-
-export default connect(mapStateToProps)(App)
+export default App

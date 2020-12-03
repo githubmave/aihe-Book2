@@ -8,4 +8,6 @@ function listRepos (db = connection) {
   .select()
 }
 
-module.exports = connection
+module.exports = {
+  listRepos
+}
