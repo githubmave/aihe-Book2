@@ -24,7 +24,11 @@ class AddVideo extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const action = saveVideo(this.state.title, this.state.link)
+    const action = saveVideo(
+      this.state.title,
+      this.state.link,
+      this.state.category
+    )
     this.props.dispatch(action)
     this.setState({ title: '', link: '' })
   }
