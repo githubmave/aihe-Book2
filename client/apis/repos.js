@@ -1,12 +1,12 @@
 import request from 'superagent'
-import { receiveRepos } from '../actions/index'
+import { getRepos } from '../actions/index'
 
 
 export function getAllRepos (dispatch) {
   return request
-  .get('/api/v1/repos')
+  .get('/api/v1')
   .then((res) => {
-    dispatch(receiveRepos(res.body))
+    dispatch(getRepos(res.body))
     return null
   })
 }

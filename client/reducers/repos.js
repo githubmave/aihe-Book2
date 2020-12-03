@@ -1,9 +1,10 @@
-import { RECEIVE_REPOS } from '../actions/index'
+import { GET_REPOS } from '../actions/index'
 
 function repos (state = [], action) {
   switch(action.type) {
-    case RECEIVE_REPOS:
+    case GET_REPOS:
       return action.repos
+      
       default:
         return state
   }

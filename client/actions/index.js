@@ -1,10 +1,8 @@
-import repos from '../reducers/repos'
+export const GET_REPOS = 'GET_REPOS'
 
-export const RECEIVE_REPOS = 'RECEIVE_REPOS'
-
-export const receiveRepos = (repos) => {
+export const getRepos = (repos) => {
   return {
-    type: RECEIVE_REPOS,
+    type: GET_REPOS,
     repos: repos
   }
 }

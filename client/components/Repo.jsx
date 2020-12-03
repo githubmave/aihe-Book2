@@ -4,9 +4,9 @@ import React from 'react'
 class Repo extends React.Component {
   render () {
     return (
-      <a key={this.props.id} href={this.props.repo_link}>
-        {this.props.repo.repo_name}
-      </a>
+      <li key={this.props.id} >
+        <a href={this.props.repo.repo_link} >{this.props.repo.repo_name}</a>
+      </li>
     )
   }
 }
