@@ -42,12 +42,6 @@
       ]
     ]
   },
-  "jest": {
-    "setupFiles": [
-      "./client/testing/jsdom.js",
-      "./client/testing/enzyme.js"
-    ]
-  },
   "eslintConfig": {
     "extends": "eda",
     "ignorePatterns": [
@@ -60,8 +54,7 @@
     "knex": "^0.21.12",
     "nock": "^13.0.5",
     "pg": "^8.5.1",
-    "superagent": "^6.1.0",
-    "testing-library": "0.0.2"
+    "superagent": "^6.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -74,8 +67,6 @@
     "@testing-library/react": "^11.2.2",
     "babel-loader": "^8.2.1",
     "css-loader": "^5.0.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "7.13.0",
     "eslint-config-eda": "0.1.4",
     "jest": "^26.6.3",
