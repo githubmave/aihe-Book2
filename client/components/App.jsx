@@ -1,19 +1,7 @@
 import React from 'react'
-//import { connect } from 'react-redux'
-//import Nav from './Nav'
 import VideoList from './VideoList'
 
-import { fetchFruits } from '../actions'
-
-export class App extends React.Component {
-  state = {
-    fruits: [],
-  }
-
-  componentDidMount() {
-    this.props.dispatch(fetchFruits())
-  }
-
+export default class App extends React.Component {
   render() {
     return (
       <div className="app">
@@ -30,14 +18,3 @@ export class App extends React.Component {
     )
   }
 }
-
-// function mapStateToProps (globalState) {
-//   return {
-//     //fruits: globalState.fruits,
-//     videos: globalState.videos
-//   }
-// }
-
-// //export default App
-
-// export default connect(mapStateToProps)(App)
