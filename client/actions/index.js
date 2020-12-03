@@ -1,20 +1,10 @@
-import { getFruits } from '../apis/fruits'
+import repos from '../reducers/repos'
 
-export const SET_FRUITS = 'SET_FRUITS'
+export const RECEIVE_REPOS = 'RECEIVE_REPOS'
 
-export function setFruits (fruits) {
+export const receiveRepos = (repos) => {
   return {
-    type: SET_FRUITS,
-    fruits
-  }
-}
-
-export function fetchFruits () {
-  return dispatch => {
-    return getFruits()
-      .then(fruits => {
-        dispatch(setFruits(fruits))
-        return null
-      })
+    type: RECEIVE_REPOS,
+    repos: repos
   }
 }
