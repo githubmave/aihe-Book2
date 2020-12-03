@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom'
 
 import { receiveVideos } from '../actions'
 import { fetchVideos } from '../apis/videos'
@@ -17,7 +18,8 @@ class VideoList extends React.Component {
     return (
       <ul>
         {this.props.videos.map((video, i) => (
-          <li key={i}> {video.video_name} </li>
+          <li key={i}> <Link to = {`/videos/${video.video_category}`} > {video.video_category}</Link>
+          </li>
         ))}
       </ul>
     )
