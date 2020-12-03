@@ -9,7 +9,15 @@ export function saveVideo() {}
 
 import { getFruits } from '../apis/fruits'
 
+export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS'
 export const SET_FRUITS = 'SET_FRUITS'
+
+export const receiveVideos = (videoData) => {
+  return {
+    type: RECEIVE_VIDEOS,
+    videoData,
+  }
+}
 
 export function setFruits(fruits) {
   return {

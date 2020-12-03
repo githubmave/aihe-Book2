@@ -1,10 +1,6 @@
 import { response } from 'express'
 import request from 'superagent'
 
-// postVideo will tell send the title and link to the database
-// the data should pickup the what the user entered as these
-// parameters.
-
 // c 
 export function postVideo(title, link) {
   console.log(title)
