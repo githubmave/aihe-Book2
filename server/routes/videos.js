@@ -11,13 +11,12 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
   db.getVideos()
-    .then(videoList=> {
+    .then((videoList) => {
       console.log(videoList)
       res.json(videoList)
-     // res.json({"name":"JV video"})
-     
+      // res.json({"name":"JV video"})
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err)
       res.status(500).json({ message: 'Video playing went wrong' })
     })
