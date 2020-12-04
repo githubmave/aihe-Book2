@@ -1,5 +1,5 @@
 import videos from './videos'
-import { receiveVideos} from '../actions/videos'
+import { receiveVideos } from '../actions/videos'
 
 describe('Video Reducer', () => {
   test('GET_VIDEOS', () => {

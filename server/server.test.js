@@ -5,15 +5,15 @@ import { listVideos } from './db/videodb'
 import { expect } from '@jest/globals'
 
 jest.mock('./db/connection', () => ({
-  listRepos: jest.fn(() => Promise.resolve(repos)),
+  listRepos: jest.fn(() => Promise.resolve(repos))
 }))
 
 const repos = [
   {
     id: 1,
     repo_name: 'dog-tinder',
-    repo_link: 'https://github.com/aihe-2020/dog-tinder',
-  },
+    repo_link: 'https://github.com/aihe-2020/dog-tinder'
+  }
 ]
 
 describe('GET /api/v1/repos', () => {

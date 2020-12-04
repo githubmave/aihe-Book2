@@ -1,7 +1,7 @@
 import request from 'superagent'
 
 // c
-export function postVideo(title, link) {
+export function postVideo (title, link) {
   console.log(title)
   console.log(link)
   return request
@@ -10,17 +10,17 @@ export function postVideo(title, link) {
     .then((response) => response.body)
 }
 // r
-export function fetchVideos() {
+export function fetchVideos () {
   return request.get('/api/v1/videos').then((res) => {
     return res.body
   })
 }
 // u
-export function patchVideo(id, patchInfo) {
+export function patchVideo (id, patchInfo) {
   return request
     .patch('/api/v1/videos/' + id)
     .send(patchInfo)
     .then((response) => response.body)
 }
 // d
-export function deleteVideo(id) {}
+export function deleteVideo (id) {}

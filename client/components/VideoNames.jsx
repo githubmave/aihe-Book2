@@ -3,14 +3,14 @@ import { Link, useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const VideoNames = (props) => {
-  let { category } = useParams()
+  const { category } = useParams()
   console.log('category is: ', category)
 
   return (
     <div>
       <ul>
         {props.videos.map((video, i) => {
-          if (video.video_category == category) {
+          if (video.video_category === category) {
             return (
               <li key={i}>
                 {' '}
@@ -31,7 +31,7 @@ const VideoNames = (props) => {
 
 const mapStateToProps = (globalState) => {
   return {
-    videos: globalState.videos,
+    videos: globalState.videos
   }
 }
 
