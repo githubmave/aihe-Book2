@@ -7,6 +7,7 @@ import { GridForm, ColOne, ColTwo, Button } from './Styled'
 function Register (props) {
   const [form, setForm] = useState({
     username: '',
+    email: '',
     password: ''
   })
 
@@ -19,8 +20,8 @@ function Register (props) {
   }
 
   const handleClick = () => {
-    const { username, password } = form
-    register({ username, password }, { baseUrl })
+    const { username, email, password } = form
+    register({ username, email, password }, { baseUrl })
       .then((token) => {
         if (isAuthenticated()) {
           props.history.push('/')
@@ -37,6 +38,13 @@ function Register (props) {
           id='username'
           name='username'
           value={form.username}
+          onChange={handleChange} />
+
+        <ColOne htmlFor='email'>Email:</ColOne>
+        <ColTwo type='text'
+          id='email'
+          name='email'
+          value={form.email}
           onChange={handleChange} />
 
         <ColOne htmlFor='password'>Password:</ColOne>

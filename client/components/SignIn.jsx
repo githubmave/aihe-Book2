@@ -6,7 +6,7 @@ import { GridForm, ColOne, ColTwo, Button } from './Styled'
 
 function SignIn (props) {
   const [form, setForm] = useState({
-    username: '',
+    email: '',
     password: ''
   })
 
@@ -19,8 +19,8 @@ function SignIn (props) {
   }
 
   const handleClick = () => {
-    const { username, password } = form
-    signIn({ username, password }, { baseUrl })
+    const { email, password } = form
+    signIn({ email, password }, { baseUrl })
       .then((token) => {
         if (isAuthenticated()) {
           props.history.push('/')
@@ -32,11 +32,11 @@ function SignIn (props) {
     <>
       <h2>Sign in</h2>
       <GridForm>
-        <ColOne htmlFor='username'>Username:</ColOne>
+        <ColOne htmlFor='username'>Email:</ColOne>
         <ColTwo type='text'
-          id='username'
-          name='username'
-          value={form.username}
+          id='email'
+          name='email'
+          value={form.email}
           onChange={handleChange} />
 
         <ColOne htmlFor='password'>Password:</ColOne>
