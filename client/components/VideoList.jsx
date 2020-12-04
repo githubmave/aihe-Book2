@@ -9,6 +9,7 @@ import { fetchVideos } from '../apis/videos'
 class VideoList extends React.Component {
   componentDidMount () {
     fetchVideos()
+      // eslint-disable-next-line promise/always-return
       .then((videoData) => {
         this.props.dispatch(receiveVideos(videoData))
       })
