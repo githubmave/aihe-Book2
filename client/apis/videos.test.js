@@ -1,5 +1,5 @@
 import nock from 'nock'
-import { fetchVideos } from './'
+import { fetchVideos } from './videos'
 
 describe('get all videos', () => {
   const fakeVideo = [

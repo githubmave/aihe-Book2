@@ -1,7 +1,8 @@
 const knex = require('knex')
 const config = require('./knexfile')
 const connection = knex(config.test)
-const { listRepos } = require('./connection')
+const { listRepos } = require('./repos')
+const { test } = require('./knexfile')
 
 beforeAll(() => {
   return connection.migrate.latest()
@@ -21,4 +22,8 @@ describe('listRepos', () => {
         return null
       })
   })
+})
+
+describe('list videos', () => {
+  test(''
 })
