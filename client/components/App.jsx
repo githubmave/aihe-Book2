@@ -9,9 +9,6 @@ import SignIn from './SignIn'
 export default function App () {
   return (
     <Router>
-      <header>
-        <h1>Main Page Here</h1>
-      </header>
       <Route path='/' component={ Nav } />
       <Route exact path='/' component={ Repos } />
       <Route path='/register' component={ Register } />
