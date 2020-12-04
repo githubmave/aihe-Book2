@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { receiveVideos } from '../actions'
-import { fetchVideos } from '../apis/index'
+import { receiveVideos } from '../actions/videos'
+import { fetchVideos } from '../apis/videos'
 // import VideoNames from './VideoNames'
 
 class VideoList extends React.Component {
