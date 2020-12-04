@@ -11,6 +11,7 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
   db.getVideos()
+    // eslint-disable-next-line promise/always-return
     .then((videoList) => {
       console.log(videoList)
       res.json(videoList)

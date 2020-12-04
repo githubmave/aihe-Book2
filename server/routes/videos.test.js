@@ -33,10 +33,10 @@ describe('GET /api/v1/videos', () => {
     getVideos.mockImplementation(() => Promise.reject(err))
     expect.assertions(1)
     return request(server)
-    .get('/api/v1/videos')
-    .then(res => {
-      expect(res.status).toEqual(500)
-      return null
-    })
+      .get('/api/v1/videos')
+      .then(res => {
+        expect(res.status).toEqual(500)
+        return null
+      })
   })
 })
