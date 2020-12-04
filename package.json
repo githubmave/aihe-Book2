@@ -13,13 +13,18 @@
     "dev": "run-p dev:client dev:server",
     "dev:client": "npm run webpack -- --watch",
     "dev:server": "nodemon --watch server server/index.js",
+    "knex": "knex --knexfile server/db/knexfile.js",
+    "db-reset": "run-s db:*",
+    "db:delete": "rm server/db/dev.sqlite3",
+    "db:migrate": "npm run knex migrate:latest",
+    "db:seed": "npm run knex seed:run",
     "build": "run-p build:client build:server",
     "build:client": "npm run webpack -- --mode production",
     "build:server": "npm run knex -- migrate:latest",
     "lint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint --fix --ext .js,.jsx .",
     "webpack": "webpack --config ./client/webpack.config.js",
-    "knex": "knex --knexfile ./server/db/knexfile.js"
+    "postinstall": "run-s db:migrate db:seed"
   },
   "babel": {
     "presets": [
@@ -37,12 +42,6 @@
       ]
     ]
   },
-  "jest": {
-    "setupFiles": [
-      "./client/testing/jsdom.js",
-      "./client/testing/enzyme.js"
-    ]
-  },
   "eslintConfig": {
     "extends": "eda",
     "ignorePatterns": [
@@ -50,13 +49,12 @@
     ]
   },
   "dependencies": {
+    "authenticare": "^0.4.7",
     "express": "^4.17.1",
     "knex": "^0.21.12",
-    "lint": "^0.7.0",
     "nock": "^13.0.5",
     "pg": "^8.5.1",
-    "superagent": "^6.1.0",
-    "testing-library": "0.0.2"
+    "superagent": "^6.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -69,8 +67,6 @@
     "@testing-library/react": "^11.2.2",
     "babel-loader": "^8.2.1",
     "css-loader": "^5.0.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "7.13.0",
     "eslint-config-eda": "0.1.4",
     "jest": "^26.6.3",
