@@ -1,3 +1,5 @@
+/* eslint-disable promise/always-return */
+/* eslint-disable promise/catch-or-return */
 import React, { useState } from 'react'
 import { register, isAuthenticated } from 'authenticare/client'
 
