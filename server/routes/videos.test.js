@@ -1,6 +1,4 @@
-const { expect } = require('@jest/globals')
 const request = require('supertest')
-const { test } = require('../db/knexfile')
 const { getVideos } = require('../db/videodb')
 const server = require('../server')
 
@@ -13,7 +11,7 @@ const videos = [
   }
 ]
 
-jest.mock('../db/videos', () => ({
+jest.mock('../db/videodb', () => ({
   getVideos: jest.fn(() => Promise.resolve(videos))
 }))
 

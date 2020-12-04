@@ -4,8 +4,6 @@ const connection = knex(config.test)
 
 const { listRepos } = require('./repos')
 const { getVideos } = require('./videodb')
-const { test } = require('./knexfile')
-const { expect } = require('@jest/globals')
 
 beforeAll(() => {
   return connection.migrate.latest()
