@@ -7,7 +7,7 @@ import VideoNames from './VideoNames'
 import Repos from './Repos'
 
 export default class App extends React.Component {
-  render() {
+  render () {
     return (
       <>
         <Router>
@@ -19,8 +19,8 @@ export default class App extends React.Component {
               <Route path="/videos/:category/:name" component={VideoItem} />
             </div>
             <section>
-          <Repos/>
-        </section>
+              <Repos/>
+            </section>
           </div>
         </Router>
       </>

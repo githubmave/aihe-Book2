@@ -11,8 +11,8 @@ const videos = [
     id: 1,
     video_name: 'authentication',
     video_link: 'https://www.youtube.com/watch?v=j3d5NdG6c6k',
-    video_category: 'auth',
-  },
+    video_category: 'auth'
+  }
 ]
 
 describe('GET /api/v1/videos', () => {

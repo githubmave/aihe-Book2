@@ -7,7 +7,7 @@ import { fetchVideos } from '../apis/videos'
 // import VideoNames from './VideoNames'
 
 class VideoList extends React.Component {
-  componentDidMount() {
+  componentDidMount () {
     fetchVideos()
       .then((videoData) => {
         this.props.dispatch(receiveVideos(videoData))
@@ -15,7 +15,7 @@ class VideoList extends React.Component {
       .catch((err) => console.log(err))
   }
 
-  render() {
+  render () {
     console.log('videos from videoList', this.props.videos)
     return (
       <>
@@ -39,7 +39,7 @@ class VideoList extends React.Component {
 
 const mapStateToProps = (globalState) => {
   return {
-    videos: globalState.videos,
+    videos: globalState.videos
   }
 }
 

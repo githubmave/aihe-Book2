@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const VideoItem = (props) => {
-  let { name } = useParams()
+  const { name } = useParams()
   console.log('name from Route: ', name)
   return (
     <div>
@@ -21,7 +21,7 @@ const VideoItem = (props) => {
 
 const mapStateToProps = (globalState) => {
   return {
-    videos: globalState.videos,
+    videos: globalState.videos
   }
 }
 

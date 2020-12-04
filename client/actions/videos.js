@@ -3,15 +3,15 @@ export const ADD_VIDEO = 'ADD_VIDEO'
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS'
 export const SET_ERROR = 'SET_ERROR'
 
-function setError(msg) {
+function setError (msg) {
   return { type: SET_ERROR, msg }
 }
 
-export function addVideo(video) {
+export function addVideo (video) {
   return { type: ADD_VIDEO, video: video }
 }
 
-export function saveVideo(title, link) {
+export function saveVideo (title, link) {
   return (dispatch) => {
     postVideo(title, link)
       .then((newVideo) => dispatch(addVideo(newVideo)))
@@ -22,6 +22,6 @@ export function saveVideo(title, link) {
 export const receiveVideos = (videoData) => {
   return {
     type: RECEIVE_VIDEOS,
-    videoData,
+    videoData
   }
 }

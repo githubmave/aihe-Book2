@@ -7,14 +7,13 @@ class AddVideo extends React.Component {
   state = {
     title: '',
     link: '',
-    category: '',
+    category: ''
   }
 
   // press a category button 'auth'
   // update the category state (line 10) to 'auth'
   // when you submit, it will pass the data through saveVideo as this.state.category
 
-  
   handleTitleChange = (e) => {
     this.setState({ title: e.target.value })
   }
@@ -34,7 +33,7 @@ class AddVideo extends React.Component {
     this.setState({ title: '', link: '' })
   }
 
-  render() {
+  render () {
     return (
       <form onSubmit={this.handleSubmit}>
         <input

@@ -1,11 +1,11 @@
 const connection = require('./connection')
 
-function findVideo(id, db = connection) {
+function findVideo (id, db = connection) {
   return db('videos').where({ id }).select().first()
 }
 
 // c
-function addVideo(title, link, db = connection) {
+function addVideo (title, link, db = connection) {
   return db('videos')
     .insert({ title, link })
     .then((ids) => {
@@ -14,20 +14,20 @@ function addVideo(title, link, db = connection) {
 }
 
 // r
-function getVideos(db = connection) {
+function getVideos (db = connection) {
   return db('videos').select()
 }
 
 // u
-function updateVideos() {}
+function updateVideos () {}
 
 // d
-function deleteVideos() {}
+function deleteVideos () {}
 
 module.exports = {
   findVideo,
   addVideo,
   getVideos,
   updateVideos,
-  deleteVideos,
+  deleteVideos
 }
