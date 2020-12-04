@@ -1,37 +1,19 @@
-const request = require('supertest')
-//const { listRepos } = require('../db/repos')
-//const { getVideos } = require('../db/videodb')
+import videos from './videos'
+import { receiveVideos} from '../actions/videos'
 
-const server = require('../server')
-
-//const repos = [{ id: 1, repo_name: 'dog-tinder', repo_link: 'https://github.com/aihe-2020/dog-tinder' }]
-const repos = [{ id: 1, repo_name: 'dog-tinder', repo_link: 'https://github.com/aihe-2020/dog-tinder' }]
-
-
-jest.mock('../db/connection', () => ({
-  listRepos: jest.fn(() => Promise.resolve(repos))
-}))
-
-describe('GET /api/v1/repos', () => {
-  test('list repos', () => {
-    expect.assertions(2)
-    return request(server)
-      .get('/api/v1/repos')
-      .then(res => {
-        expect(listRepos).toHaveBeenCalled()
-        expect(res.body).toHaveLength(1)
-        return null
-      })
+describe('Video Reducer', () => {
+  test('GET_VIDEOS', () => {
+    const state = []
+    const action = receiveVideos([{ id: 1, video_name: 'dog-tinder', video_link: 'https://github.com/aihe-2020/dog-tinder' },
+      { id: 2, video_name: 'day-tripper', video_link: 'https://github.com/aihe-2020/day-tripper' },
+      { id: 3, video_name: 'aihe-book', video_link: 'https://github.com/aihe-2020/aihe-book' }])
+    const newState = videos(state, action)
+    return expect(newState).toHaveLength(3)
   })
-  test('shows an error when the route is failing', () => {
-    const err = new Error('Route is currently failing')
-    listRepos.mockImplementation(() => Promise.reject(err))
-    expect.assertions(1)
-    return request(server)
-      .get('/api/v1/repos')
-      .then(res => {
-        expect(res.status).toEqual(500)
-        return null
-      })
+  test('Default state', () => {
+    const state = undefined
+    const action = { type: '_INIT_' }
+    const newState = videos(state, action)
+    return expect(newState).toEqual([])
   })
 })

@@ -1,9 +1,11 @@
 import React from 'react'
+import {MemoryRouter as Router} from 'react-router'
 import { Provider } from 'react-redux'
 import { screen, render } from '@testing-library/react'
 import VideoList from './VideoList'
 import { fetchVideos } from '../apis/videos'
 
+// this not working well // 
 const fakeStore = {
   dispatch: jest.fn(),
   getState: jest.fn(),
@@ -23,12 +25,12 @@ fakeStore.getState.mockImplementation(() => ({
 
 describe('<VideoList/>', () => {
   test('receiving list of videos', async () => {
-    render(<Provider store={fakeStore}><VideoList /></Provider>)
+    render(<Provider store={fakeStore}><Router><VideoList /></Router></Provider>)
     const items = await screen.findAllByRole('listitem')
     expect(items).toHaveLength(2)
   })
   test('that fetchVideos gets called', () => {
-    render(<Provider store={fakeStore}><VideoList /></Provider>)
+    render(<Provider store={fakeStore}><Router><VideoList /></Router></Provider>)
     expect(fetchVideos).toHaveBeenCalled
   })
 })

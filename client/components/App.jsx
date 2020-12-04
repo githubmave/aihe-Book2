@@ -1,8 +1,6 @@
 import React from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
-//import { connect } from 'react-redux'
-//import Nav from './Nav'
 import VideoList from './VideoList'
 import VideoItem from './VideoItem'
 import VideoNames from './VideoNames'
@@ -29,12 +27,3 @@ export default class App extends React.Component {
     )
   }
 }
-
-
-// function mapStateToProps (globalState) {
-//   return {
-//     fruits: globalState.fruits
-//   }
-// }
-
-// export default connect(mapStateToProps)(App)

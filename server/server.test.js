@@ -1,6 +1,7 @@
 import request from 'supertest'
 import server from './server'
-import { listRepos } from './db/connection'
+import { listRepos } from './db/repos'
+import {listVideos} from './db/videodb'
 import { expect } from '@jest/globals'
 
 jest.mock('./db/connection', () => ({
@@ -45,7 +46,9 @@ describe('GET /api/v1/videos', () => {
     return request(server)
     .get('/api/v1/videos')
     .then((res) => {
-      expect(listVideos
+      expect(listVideos).toHaveBeenCalled()
+      expect(res.body).toHaveLength(1)
+      return null 
     })
   })
 })
