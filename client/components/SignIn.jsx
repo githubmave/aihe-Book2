@@ -1,5 +1,3 @@
-/* eslint-disable promise/always-return */
-/* eslint-disable promise/catch-or-return */
 import React from 'react'
 import { signIn, isAuthenticated } from 'authenticare/client'
 
