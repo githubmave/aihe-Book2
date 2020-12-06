@@ -4,6 +4,7 @@ const db = require('../db/forum')
 
 const router = express.Router()
 
+// gets all the posts and sends them 
 router.get('/', (req, res) => {
   db.getPosts()
     .then(posts => {
@@ -11,6 +12,7 @@ router.get('/', (req, res) => {
     })
 })
 
+// grabs post based on id (single post)
 router.get('/:id', (req, res) => {
   const id = req.params.id
 
@@ -20,6 +22,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
+// new post with title and paragraph fields
 router.post('/', (req, res) => {
   const post = {
     title: req.body.title,
@@ -33,6 +36,9 @@ router.post('/', (req, res) => {
     })
 })
 
+
+// update the post based on what is chosen. 
+// change title and paras
 router.patch('/:id', (req, res) => {
   const id = req.params.id
 
@@ -48,6 +54,7 @@ router.patch('/:id', (req, res) => {
     })
 })
 
+// delete based on single id
 router.delete('/:id', (req, res) => {
   const id = req.params.id
 
@@ -57,6 +64,7 @@ router.delete('/:id', (req, res) => {
     })
 })
 
+// displays all comments 
 router.get('/:postId/comments', (req, res) => {
   const postId = req.params.postId
 
@@ -66,6 +74,7 @@ router.get('/:postId/comments', (req, res) => {
     })
 })
 
+// update comment 
 router.patch('/:postId/comments', (req, res) => {
   const postId = req.params.postId
 

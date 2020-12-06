@@ -1,7 +1,7 @@
 import React from 'react'
 import { addPost, updatePost } from '../api/forum'
 
-class PostForm extends React.Component {
+class ForumPostsForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -110,4 +110,4 @@ class PostForm extends React.Component {
   }
 }
 
-export default PostForm
+export default ForumPostsForm

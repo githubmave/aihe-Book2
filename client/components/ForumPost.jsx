@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Comments from './Comments'
 import { deletePost, getCommentsByPostId } from '../api/forum'
 
-class Post extends React.Component {
+class ForumPost extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -22,11 +22,11 @@ class Post extends React.Component {
     }
   }
 
-  fetchComments(postId) {
-    getCommentsByPostId(postId)
-      .then((comments) => this.setState({ comments: comments }))
-      .catch((err) => this.setState({ errorMessage: err.message }))
-  }
+  // fetchComments(postId) {
+  //   getCommentsByPostId(postId)
+  //     .then((comments) => this.setState({ comments: comments }))
+  //     .catch((err) => this.setState({ errorMessage: err.message }))
+  // }
 
   deletePost() {
     deletePost(this.props.post.id)
@@ -93,4 +93,4 @@ Post.defaultProps = {
   },
 }
 
-export default Post
+export default ForumPost
