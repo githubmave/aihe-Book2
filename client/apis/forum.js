@@ -1,5 +1,6 @@
 import request from 'superagent'
 
+// gets all posts.
 export function getPosts () {
   return request.get('/v1/posts')
     .then(res => {

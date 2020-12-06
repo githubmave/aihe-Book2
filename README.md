@@ -1,29 +1,20 @@
-# Fullstack boilerplate
-
-## Getting Started
-
-### From the Github UI
-See the instructions [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) to use Github's feature to create a new repo from a template.
-
-### From the command line
-
+# Aihe Book
+### Command line scripts
 ```
-git clone https://github.com/dev-academy-challenges/boilerplate-fullstack [your-project-name]
-cd [your-project-name]
-npm install # to install dependencies
+npm install # to install dependencies (will also run migrations and seed the db once complete)
 npm run dev # to start the dev server
+npm run lint:fix # to fix any easily resolvable issues with your linting
+npm run test:watch # to run the test suite
 ```
 
 You can find the server running on [http://localhost:3000](http://localhost:3000).
 
 ## Details
+🚧 A WIP 🚧 
 
-This repo includes:
+A place to keep in touch with rest of Aihe!
+Potential use cases include 
 
-* a single, simple API endpoint (`/api/v1/fruits`)
-* a single React component (`<App />`)
-* an example database module (`server/db/fruits.js`)
-* an API client module (`client/apis/fruits.js`)
-* configuration for Jest and Enzyme (including JSDOM)
-* configuration for server-side debugging in VS Code
-* a single client-side test (`client/components/App.test.js`)
+
+
+

@@ -22,11 +22,11 @@ class ForumPost extends React.Component {
     }
   }
 
-  // fetchComments(postId) {
-  //   getCommentsByPostId(postId)
-  //     .then((comments) => this.setState({ comments: comments }))
-  //     .catch((err) => this.setState({ errorMessage: err.message }))
-  // }
+  fetchComments(postId) {
+    getCommentsByPostId(postId)
+      .then((comments) => this.setState({ comments: comments }))
+      .catch((err) => this.setState({ errorMessage: err.message }))
+  }
 
   deletePost() {
     deletePost(this.props.post.id)

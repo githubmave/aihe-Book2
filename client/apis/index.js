@@ -1,26 +1,42 @@
-// import request from 'superagent'
+import request from 'superagent'
+import { getAuthorizationHeader } from 'authenticare/client'
+import { addUser, editUser } from '../actions/index'
 
-// // c
-// export function postVideo(title, link) {
-//   console.log(title)
-//   console.log(link)
-//   return request
-//     .post('/api/v1/videos')
-//     .send({ title, link })
-//     .then((response) => response.body)
-// }
-// // r
-// export function fetchVideos() {
-//   return request.get('/api/v1/videos').then((res) => {
-//     return res.body
-//   })
-// }
-// // u
-// export function patchVideo(id, patchInfo) {
-//   return request
-//     .patch('/api/v1/videos/' + id)
-//     .send(patchInfo)
-//     .then((response) => response.body)
-// }
-// // d
-// export function deleteVideo(id) {}
+const apiUrl = 'http://localhost:3000/api/v1'
+
+export function saveUser (user, dispatch) {
+  return request
+    .patch(`${apiUrl}/users/`)
+    .set(getAuthorizationHeader())
+    .send(user)
+    .then(res => {
+      return dispatch(addUser(res.body))
+    })
+}
+export function getUsers () {
+  return request
+    .get(`${apiUrl}/users`)
+    .set(getAuthorizationHeader())
+    .then(res => {
+      return res.body
+    })
+}
+export function getUser () {
+  return request
+    .get(`${apiUrl}/users/current`)
+    .set(getAuthorizationHeader())
+    .then(res => {
+      return res.body
+    })
+}
+
+export function updateUser (userSettings, dispatch) {
+  return request
+    .patch(`${apiUrl}/users/current`)
+    .set(getAuthorizationHeader())
+    .send(userSettings)
+    .then(res => {
+      console.log(res.body)
+      return dispatch(editUser(res.body))
+    })
+}

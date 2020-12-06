@@ -1,4 +1,4 @@
-import { postVideo } from '../apis'
+import { postVideo } from '../apis/videos'
 export const ADD_VIDEO = 'ADD_VIDEO'
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS'
 export const SET_ERROR = 'SET_ERROR'

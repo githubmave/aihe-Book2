@@ -1,19 +1,23 @@
-// import React from 'react'
-// import {Link} from 'react-router-dom'
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { logOff } from 'authenticare/client'
 
-// const Nav = (props) => {
+import { IfAuthenticated, IfNotAuthenticated } from './Auth'
 
-//       return (
-
-//         <div>
-//             <h2>Nav</h2>
-//               <ul >
-//                   return <li> <Link to >  </Link> </li>
-
-//               </ul>
-//         </div>
-
-//       )
-
-// }
-// export default Nav
+export default function Nav () {
+  return (
+    <>
+      <div>
+        <Link to='/'>Home</Link>
+        <IfAuthenticated>
+          <Link to='#' onClick={logOff}>Log off</Link>
+        </IfAuthenticated>
+        <IfNotAuthenticated>
+          <Link to='/register'>Register</Link>
+          <Link to='/signin'>Sign in</Link>
+        </IfNotAuthenticated>
+      </div>
+      <h1>Aihe Book</h1>
+    </>
+  )
+}
