@@ -33,7 +33,7 @@ function userExists (username, db = connection) {
 
 function getUserByName (username, db = connection) {
   return db('users')
-    .select()
+    .select('users.*', 'password as hash')
     .where('username', username)
     .first()
 }

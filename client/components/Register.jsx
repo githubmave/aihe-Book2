@@ -23,7 +23,6 @@ export default class Register extends React.Component {
     e.preventDefault()
     const { username, email, password } = this.state
     return register({ username, email, password }, { baseUrl })
-
       .then((token) => {
         if (isAuthenticated()) {
           this.props.history.push(`/${token.id}`)
@@ -51,7 +50,7 @@ export default class Register extends React.Component {
               </label>
               <label>
                 <p>Password:</p>
-                <input type="text" name="password" value={ this.state.password } onChange={ this.handleChange } />
+                <input type="password" name="password" value={ this.state.password } onChange={ this.handleChange } />
               </label>
               <input type="submit" value="Register"></input>
             </form>

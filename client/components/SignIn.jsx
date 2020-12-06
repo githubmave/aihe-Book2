@@ -8,8 +8,7 @@ export default class SignIn extends React.Component {
     super(props)
     this.state = {
       username: '',
-      password: '',
-      error: ''
+      password: ''
     }
   }
 
@@ -44,13 +43,10 @@ export default class SignIn extends React.Component {
           </label>
           <label>
             <p>Password:</p>
-            <input type="text" name="password" value={this.state.password} onChange={this.handleChange} />
+            <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
           </label>
           <input type ="submit" value="Submit"></input>
         </form>
-        <div>
-          {this.state.error && `Error: ${this.state.error}`}
-        </div>
       </>
     )
   }
