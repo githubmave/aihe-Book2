@@ -6,6 +6,9 @@ import VideoItem from './VideoItem'
 import VideoNames from './VideoNames'
 import Repos from './Repos'
 
+import {getPosts} from '../api'
+
+
 export default class App extends React.Component {
   render () {
     return (
