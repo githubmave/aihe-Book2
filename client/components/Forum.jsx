@@ -2,11 +2,11 @@ import React from 'react'
 
 import Header from './Header'
 import Footer from './Footer'
-import ForumRoutes from './AppRoutes'
+import AppRoutes from './AppRoutes'
 
-import {getPosts} from '../api'
+import {getPosts} from '../apis/forum'
 
-class Forum extends React.Component {
+class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -37,7 +37,7 @@ class Forum extends React.Component {
           <Header />
         </div>
         <div className='content pure-u-1 pure-u-md-3-4'>
-          <ForumRoutes
+          <AppRoutes
             posts={this.state.posts}
             fetchPosts={this.fetchPosts}
           />
@@ -53,4 +53,4 @@ class Forum extends React.Component {
   }
 }
 
-export default Forum
+export default App

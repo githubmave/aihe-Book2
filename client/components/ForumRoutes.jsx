@@ -1,9 +1,10 @@
 import React from 'react'
+
 import {Route, Switch} from 'react-router-dom'
 
-import ForumPost from './ForumPost'
-import ForumPosts from './ForumPosts'
-import ForumPostsForm from './ForumPostsForm'
+import Post from './Post'
+import Posts from './Posts'
+import PostForm from './PostForm'
 
 class Routes extends React.Component {
   render () {
@@ -11,20 +12,20 @@ class Routes extends React.Component {
       <div>
         <Switch>
           <Route exact path='/' render={props => (
-            <ForumPosts
+            <Posts
               posts={this.props.posts}
               fetchPosts={this.props.fetchPosts}
               {...props}
             />
           )} />
           <Route path='/posts/new' render={(props) => (
-            <ForumPostsForm
+            <PostForm
               fetchPosts={this.props.fetchPosts}
               {...props}
             />
           )} />
           <Route path='/posts/edit/:id' render={(props) => (
-            <ForumPostsForm
+            <PostForm
               fetchPosts={this.props.fetchPosts}
               post={this.props.posts.find(post => (
                 post.id === Number(props.match.params.id))
@@ -33,7 +34,7 @@ class Routes extends React.Component {
             />
           )} />
           <Route path='/posts/:id' render={props => (
-            <ForumPost
+            <Post
               fetchPosts={this.props.fetchPosts}
               post={this.props.posts.find((post) =>
                 post.id === Number(props.match.params.id)
@@ -42,7 +43,7 @@ class Routes extends React.Component {
             />
           )} />
           <Route path='/posts/:postId/comments/:commentId' render={(props) => (
-            <ForumPost
+            <Post
               fetchPosts={this.props.fetchPosts}
               post={this.props.posts.find(post => (
                 post.id === Number(props.match.params.id)
