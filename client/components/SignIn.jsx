@@ -8,7 +8,8 @@ export default class SignIn extends React.Component {
     super(props)
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      error: ''
     }
   }
 
@@ -47,6 +48,9 @@ export default class SignIn extends React.Component {
           </label>
           <input type ="submit" value="Submit"></input>
         </form>
+        <div>
+          {this.state.error && `Error: ${this.state.error}`}
+        </div>
       </>
     )
   }
