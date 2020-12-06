@@ -56,5 +56,6 @@ module.exports = {
   getPostComments,
   createComment,
   updateComment,
-  deleteComment
+  deleteComment,
+  connection
 }

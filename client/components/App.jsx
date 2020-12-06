@@ -1,19 +1,34 @@
 import React from 'react'
-import Repos from './Repos'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
-class App extends React.Component {
+import Nav from './Nav'
+import VideoList from './VideoList'
+import VideoItem from './VideoItem'
+import VideoNames from './VideoNames'
+import Repos from './Repos'
+import Register from './Register'
+import SignIn from './SignIn'
+
+export default class App extends React.Component {
   render () {
     return (
       <>
-        <header>
-          <h1>Main Page Here</h1>
-        </header>
-        <section>
-          <Repos/>
-        </section>
+        <Router>
+          <div className='Navigation'>
+            <Route path='/' component={ Nav } />
+            <Route path='/register' component={ Register } />
+            <Route path='/signin' component={ SignIn } />
+          </div>
+          <div>
+            <Repos />
+          </div>
+          <div>
+            <VideoList />
+            <Route path="/videos/:category" component={ VideoNames } />
+            <Route path="/videos/:category/:name" component={ VideoItem } />
+          </div>
+        </Router>
       </>
     )
   }
 }
-
-export default App

@@ -1,10 +1,10 @@
 const request = require('supertest')
-const { listRepos } = require('../db/connection')
+const { listRepos } = require('../db/repos')
 const server = require('../server')
 
 const repos = [{ id: 1, repo_name: 'dog-tinder', repo_link: 'https://github.com/aihe-2020/dog-tinder' }]
 
-jest.mock('../db/connection', () => ({
+jest.mock('../db/repos', () => ({
   listRepos: jest.fn(() => Promise.resolve(repos))
 }))
 
