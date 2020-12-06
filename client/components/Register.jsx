@@ -40,7 +40,7 @@ export default class Register extends React.Component {
           <div>
             <h3>👋</h3>
             <p>Please register to continue</p>
-            <form onSubmit={ this.handleSubmit }>
+            <form onSubmit={ this.handleClick }>
               <label>
                 <p>Username: </p>
                 <input type="text" name="username" value={ this.state.username } onChange={ this.handleChange } />

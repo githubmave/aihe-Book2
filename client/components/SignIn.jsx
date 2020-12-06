@@ -36,7 +36,7 @@ export default class SignIn extends React.Component {
     return (
       <>
         <h2>Login</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleClick}>
           <label>
             <p>Email: </p>
             <input type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
