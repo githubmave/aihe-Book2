@@ -14,19 +14,18 @@ export default class App extends React.Component {
     return (
       <>
         <Router>
-          <div className="app">
+          <div className='Navigation'>
             <Route path='/' component={ Nav } />
-            <Route exact path='/' component={ Repos } />
             <Route path='/register' component={ Register } />
             <Route path='/signin' component={ SignIn } />
-            <div>
-              <VideoList />
-              <Route path="/videos/:category" component={ VideoNames } />
-              <Route path="/videos/:category/:name" component={ VideoItem } />
-            </div>
-            <section>
-              <Repos />
-            </section>
+          </div>
+          <div>
+            <Repos />
+          </div>
+          <div>
+            <VideoList />
+            <Route path="/videos/:category" component={ VideoNames } />
+            <Route path="/videos/:category/:name" component={ VideoItem } />
           </div>
         </Router>
       </>

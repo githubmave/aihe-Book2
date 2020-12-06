@@ -1,56 +1,55 @@
 /* eslint-disable promise/always-return */
 /* eslint-disable promise/catch-or-return */
-import React, { useState } from 'react'
+import React from 'react'
 import { signIn, isAuthenticated } from 'authenticare/client'
 
 import { baseApiUrl as baseUrl } from '../config'
-import { GridForm, ColOne, ColTwo, Button } from './Styled'
 
-function SignIn (props) {
-  const [form, setForm] = useState({
-    email: '',
-    password: ''
-  })
+export default class SignIn extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
 
-  const handleChange = e => {
+  handleChange = e => {
     const { name, value } = e.target
-    setForm({
-      ...form,
+    this.setState({
       [name]: value
     })
   }
 
-  const handleClick = () => {
-    const { email, password } = form
-    signIn({ email, password }, { baseUrl })
+  handleClick = e => {
+    e.preventDefault()
+    const { email, password } = this.state
+    return signIn({ email, password }, { baseUrl })
       .then((token) => {
         if (isAuthenticated()) {
-          props.history.push('/')
+          this.props.history.push(`/${token.id}`)
+          document.location.reload()
         }
+        return null
       })
   }
 
-  return (
-    <>
-      <h2>Sign in</h2>
-      <GridForm>
-        <ColOne htmlFor='username'>Email:</ColOne>
-        <ColTwo type='text'
-          id='email'
-          name='email'
-          value={form.email}
-          onChange={handleChange} />
-
-        <ColOne htmlFor='password'>Password:</ColOne>
-        <ColTwo type='password'
-          id='password'
-          name='password'
-          value={form.password}
-          onChange={handleChange} />
-
-        <Button type='button' onClick={handleClick}>Sign in</Button>
-      </GridForm>
-    </>
-  )
+  render () {
+    return (
+      <>
+        <h2>Login</h2>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            <p>Email: </p>
+            <input type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
+          </label>
+          <label>
+            <p>Password:</p>
+            <input type="text" name="password" value={this.state.password} onChange={this.handleChange} />
+          </label>
+          <input type ="submit" value="Submit"></input>
+        </form>
+      </>
+    )
+  }
 }
-export default SignIn
