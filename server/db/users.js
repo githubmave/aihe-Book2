@@ -8,7 +8,7 @@ module.exports = {
 }
 
 function createUser (user, db = connection) {
-  return userExists(user.username, db)
+  return userExists(user.email, db)
     .then(exists => {
       if (exists) {
         throw new Error('User exists')
@@ -17,7 +17,7 @@ function createUser (user, db = connection) {
     })
     .then(() => generateHash(user.password))
     .then(passwordHash => {
-      return db('users').insert({ username: user.username, password: passwordHash })
+      return db('users').insert({ username: user.username, email: user.email, password: passwordHash })
     })
 }
 
