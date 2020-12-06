@@ -9,7 +9,7 @@ module.exports = {
 }
 
 function createUser (user, db = connection) {
-  return userExists(user.email, db)
+  return userExists(user.username, db)
     .then(exists => {
       if (exists) {
         throw new Error('User exists')
