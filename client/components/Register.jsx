@@ -1,64 +1,63 @@
-/* eslint-disable promise/always-return */
-/* eslint-disable promise/catch-or-return */
-import React, { useState } from 'react'
+import React from 'react'
 import { register, isAuthenticated } from 'authenticare/client'
-
 import { baseApiUrl as baseUrl } from '../config'
-import { GridForm, ColOne, ColTwo, Button } from './Styled'
 
-function Register (props) {
-  const [form, setForm] = useState({
-    username: '',
-    email: '',
-    password: ''
-  })
+export default class Register extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      username: '',
+      email: '',
+      password: ''
+    }
+  }
 
-  const handleChange = e => {
+  handleChange = e => {
     const { name, value } = e.target
-    setForm({
-      ...form,
+    this.setState({
       [name]: value
     })
   }
 
-  const handleClick = () => {
-    const { username, email, password } = form
-    register({ username, email, password }, { baseUrl })
+  handleClick = e => {
+    e.preventDefault()
+    const { username, email, password } = this.state
+    return register({ username, email, password }, { baseUrl })
+
       .then((token) => {
         if (isAuthenticated()) {
-          props.history.push('/')
+          this.props.history.push(`/${token.id}`)
+          document.location.reload()
         }
+        return null
       })
   }
 
-  return (
-    <>
-      <h2>Register</h2>
-      <GridForm>
-        <ColOne htmlFor='username'>Username:</ColOne>
-        <ColTwo type='text'
-          id='username'
-          name='username'
-          value={form.username}
-          onChange={handleChange} />
-
-        <ColOne htmlFor='email'>Email:</ColOne>
-        <ColTwo type='text'
-          id='email'
-          name='email'
-          value={form.email}
-          onChange={handleChange} />
-
-        <ColOne htmlFor='password'>Password:</ColOne>
-        <ColTwo type='password'
-          id='password'
-          name='password'
-          value={form.password}
-          onChange={handleChange} />
-
-        <Button type='button' onClick={handleClick}>Register</Button>
-      </GridForm>
-    </>
-  )
+  render () {
+    return (
+      <>
+        <div className="container">
+          <div>
+            <h3>👋</h3>
+            <p>Please register to continue</p>
+            <form onSubmit={ this.handleSubmit }>
+              <label>
+                <p>Username: </p>
+                <input type="text" name="username" value={ this.state.username } onChange={ this.handleChange } />
+              </label>
+              <label>
+                <p>Email: </p>
+                <input type="text" name="email" value={ this.state.email } onChange={ this.handleChange } />
+              </label>
+              <label>
+                <p>Password:</p>
+                <input type="text" name="password" value={ this.state.password } onChange={ this.handleChange } />
+              </label>
+              <input type="submit" value="Register"></input>
+            </form>
+          </div>
+        </div>
+      </>
+    )
+  }
 }
-export default Register

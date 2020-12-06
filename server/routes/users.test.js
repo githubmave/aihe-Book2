@@ -6,7 +6,7 @@ const {
 } = require('../db/users')
 const server = require('../server')
 
-const users = [{id: 1, username: 'Test', email: 'test@test.com', password: 'password123' }]
+const users = [{ id: 1, username: 'Test', email: 'test@test.com', password: 'password123' }]
 
 jest.mock('../db/users.js', () => ({
   getUserByName: jest.fn(() => Promise.resolve(users))

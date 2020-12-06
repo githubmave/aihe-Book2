@@ -1,7 +1,7 @@
 const express = require('express')
 const path = require('path')
 
-const auth = require('./routes/users')
+const auth = require('./routes/auth')
 const videoRoutes = require('./routes/videos')
 const repos = require('./routes/repos')
 
