@@ -7,7 +7,7 @@ export default class SignIn extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      email: '',
+      username: '',
       password: ''
     }
   }
@@ -21,8 +21,8 @@ export default class SignIn extends React.Component {
 
   handleClick = e => {
     e.preventDefault()
-    const { email, password } = this.state
-    return signIn({ email, password }, { baseUrl })
+    const { username, password } = this.state
+    return signIn({ username, password }, { baseUrl })
       .then((token) => {
         if (isAuthenticated()) {
           this.props.history.push(`/${token.id}`)
@@ -38,8 +38,8 @@ export default class SignIn extends React.Component {
         <h2>Login</h2>
         <form onSubmit={this.handleClick}>
           <label>
-            <p>Email: </p>
-            <input type="text" name="email" value={this.state.email} onChange={this.handleChange}/>
+            <p>Username: </p>
+            <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
           </label>
           <label>
             <p>Password:</p>
