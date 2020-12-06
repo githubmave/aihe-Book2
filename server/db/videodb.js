@@ -5,9 +5,7 @@ function findVideo (id, db = connection) {
 }
 
 // c
-function addVideo (title, link, user, db = connection) {
-  title.added_by_user = user.id
-  link.added_by_user = user.id
+function addVideo (title, link, db = connection) {
   return db('videos')
     .insert({ title, link })
     .then((ids) => {

@@ -5,7 +5,7 @@ const { getTokenDecoder } = require('authenticare/server')
 const db = require('../db/videodb')
 
 router.post('/', getTokenDecoder(), (req, res) => {
-  db.addVideo(req.body.title, req.body.link, req.user)
+  db.addVideo(req.body.title, req.body.link)
     .then((video) => res.status(201).json(video))
     .catch((err) => res.status(500).send(err.message))
 })

@@ -1,13 +1,7 @@
 import request from 'superagent'
-import { getAuthorizationHeader } from 'authenticare/client'
-
-const acceptJsonHeader = { Accept: 'application/json' }
-
 // c
 export function postVideo (title, link) {
   return request
-    .set(acceptJsonHeader)
-    .set(getAuthorizationHeader())
     .post('/api/v1/videos')
     .send({ title, link })
     .then((response) => response.body)
@@ -16,7 +10,6 @@ export function postVideo (title, link) {
 // r
 export function fetchVideos () {
   return request
-    .set(acceptJsonHeader)
     .get('/api/v1/videos')
     .then((res) => {
       return res.body
@@ -25,8 +18,6 @@ export function fetchVideos () {
 // u
 export function patchVideo (id, patchInfo) {
   return request
-    .set(acceptJsonHeader)
-    .set(getAuthorizationHeader())
     .patch('/api/v1/videos/' + id)
     .send(patchInfo)
     .then((response) => response.body)
