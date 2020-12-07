@@ -87,7 +87,7 @@ export default function SignIn (props) {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          🐬 Sign in to Aihe Book 📚
+          🐬 Login to Aihe Book 📚
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleClick}>
           <TextField
@@ -136,7 +136,7 @@ export default function SignIn (props) {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#/register" variant="body2">
+              <Link href="#/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

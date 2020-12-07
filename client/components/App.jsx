@@ -1,13 +1,13 @@
 import React from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
 
-import NavNew from './NavNew'
+import Nav from './Nav'
 import VideoList from './VideoList'
 import VideoItem from './VideoItem'
 import VideoNames from './VideoNames'
 import Repos from './Repos'
-import RegisterNew from './RegisterNew'
-import SignInNew from './SignInNew'
+import SignUp from './SignUp'
+import Login from './Login'
 import { IfAuthenticated, IfNotAuthenticated } from './Auth'
 
 export default class App extends React.Component {
@@ -16,9 +16,9 @@ export default class App extends React.Component {
       <>
         <Router>
           <div className='Navigation'>
-            <Route path='/' component={ NavNew } />
-            <Route path='/register' component={ RegisterNew } />
-            <Route path='/signin' component={ SignInNew } />
+            <Route path='/' component={ Nav } />
+            <Route path='/signup' component={ SignUp } />
+            <Route path='/login' component={ Login } />
           </div>
           <IfAuthenticated>
             <div>
