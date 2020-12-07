@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-import Comments from './Comments'
+// import Comments from './Comments'
 import {deletePost, getCommentsByPostId} from '../apis/forum'
 
 class Post extends React.Component {

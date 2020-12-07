@@ -4,7 +4,7 @@ const path = require('path')
 const auth = require('./routes/auth')
 const videoRoutes = require('./routes/videos')
 const repos = require('./routes/repos')
-const posts = require('./routes/forum')
+const posts = require('./routes/posts')
 const users = require('./routes/users')
 
 const server = express()

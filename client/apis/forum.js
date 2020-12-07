@@ -1,80 +1,79 @@
 import request from 'superagent'
 
-// gets all posts.
 export function getPosts () {
-  return request.get('/v1/forum')
+  return request.get('/api/v1/posts')
     .then(res => {
       res.body.forEach((post) => validateNoSnakeCase(post))
       return res.body
     })
-    .catch(errorHandler('GET', '/v1/forum'))
+    .catch(errorHandler('GET', '/api/v1/posts'))
 }
 
 export function addPost (post) {
   // convert the large paragraphs string into an array of paragraphs
   post.paragraphs = post.paragraphs.split('\n')
-  return request.post('/v1/forum')
+  return request.post('/api/v1/posts')
     .send(post)
     .then(res => {
       validateNoSnakeCase(res.body)
-      validatePostResponse('POST', 'v1/forum', res.body)
+      validatePostResponse('POST', '/api/v1/posts', res.body)
       return res.body
     })
-    .catch(errorHandler('POST', '/v1/forum'))
+    .catch(errorHandler('POST', '/api/v1/posts'))
 }
 
 export function updatePost (post) {
   // convert the large paragraphs string into an array of paragraphs
   post.paragraphs = post.paragraphs.split('\n')
-  return request.patch(`/v1/forum/${post.id}`)
+  return request.patch(`/api/v1/posts/${post.id}`)
     .send(post)
     .then(res => {
       validateNoSnakeCase(res.body)
-      validatePostResponse('PATCH', 'v1/forum/:id', res.body)
+      validatePostResponse('PATCH', '/api/v1/posts/:id', res.body)
       return res.body
     })
-    .catch(errorHandler('PATCH', '/v1/forum/:id'))
+    .catch(errorHandler('PATCH', '/api/v1/posts/:id'))
 }
 
 export function deletePost (postId) {
-  return request.del(`/v1/forum/${postId}`)
+  return request.del(`/api/v1/posts/${postId}`)
     .then(res => res)
-    .catch(errorHandler('DELETE', '/v1/forum/:id'))
+    .catch(errorHandler('DELETE', '/api/v1/posts/:id'))
 }
 
 export function getCommentsByPostId (postId) {
-  return request.get(`/v1/forum/${postId}/comments`)
+  return request.get(`/api/v1/posts/${postId}/comments`)
     .then(res => {
       validateNoSnakeCase(res.body)
       return res.body
     })
-    .catch(errorHandler('GET', '/v1/forum/:id/comments'))
+    .catch(errorHandler('GET', '/api/v1/posts/:id/comments'))
 }
 
 export function addCommentByPostId (postId, comment) {
-  return request.post(`/v1/forum/${postId}/comments`)
+  return request.post(`/api/v1/posts/${postId}/comments`)
     .send(comment)
     .then(res => {
       validateNoSnakeCase(res.body)
       return res.body
     })
-    .catch(errorHandler('POST', '/v1/forum/:id/comments'))
+    .catch(errorHandler('POST', '/api/v1/posts/:id/comments'))
 }
 
 export function updateComment (comment) {
-  return request.patch(`/v1/comments/${comment.id}`)
+  return request.patch(`/api/v1/comments/${comment.id}`)
     .send(comment)
     .then(res => {
       validateNoSnakeCase(res.body)
       return res.body
     })
-    .catch(errorHandler('PATCH', '/v1/comments/:id'))
+    .catch(errorHandler('PATCH', '/api/v1/comments/:id'))
 }
 
 export function deleteComment (commentId) {
-  return request.del(`/v1/comments/${commentId}`)
+  return request.del(`/api/v1/comments/${commentId}`)
     .then(res => res)
-    .catch(errorHandler('DELETE', '/v1/comments/:id'))
+    .catch(errorHandler('DELETE', '/api/v1/comments/:id'))
 }
 
 function errorHandler (method, route) {

@@ -2,7 +2,7 @@ import React from 'react'
 
 import Header from './Header'
 import Footer from './Footer'
-import AppRoutes from './AppRoutes'
+import AppRoutes from './ForumRoutes'
 
 import {getPosts} from '../apis/forum'
 
