@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 function Header () {
   return (
     <div className='header'>
-      <h1 className='brand-title'>Charlotte&rsquo;s Web Log</h1>
       <nav className='nav'>
         <ul className='nav-list'>
           <li className='nav-item'>
