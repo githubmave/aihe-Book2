@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
 
-import Nav from './Nav'
+import NavNew from './NavNew'
 import VideoList from './VideoList'
 import VideoItem from './VideoItem'
 import VideoNames from './VideoNames'
@@ -16,7 +16,7 @@ export default class App extends React.Component {
       <>
         <Router>
           <div className='Navigation'>
-            <Route path='/' component={ Nav } />
+            <Route path='/' component={ NavNew } />
             <Route path='/register' component={ RegisterNew } />
             <Route path='/signin' component={ SignInNew } />
           </div>
