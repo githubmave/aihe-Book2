@@ -7,17 +7,20 @@ import VideoItem from './VideoItem'
 import VideoNames from './VideoNames'
 import Repos from './Repos'
 import Forum from './Forum'
-import Register from './Register'
-import SignIn from './SignIn'
+import SignUp from './SignUp'
+import Login from './Login'
+import { IfAuthenticated, IfNotAuthenticated } from './Auth'
+
 export default class App extends React.Component {
   render() {
     return (
       <>
         <Router>
-          <div className="Navigation">
-            <Route path="/" component={Nav} />
-            <Route path="/register" component={Register} />
-            <Route path="/signin" component={SignIn} />
+
+          <div className='Navigation'>
+            <Route path='/' component={ Nav } />
+            <Route path='/signup' component={ SignUp } />
+            <Route path='/login' component={ Login } />
           </div>
           <div>
             <h1>Repos</h1>
@@ -32,6 +35,18 @@ export default class App extends React.Component {
           <div>
             <h1>Forum</h1>
             <Forum />
+          <IfAuthenticated>
+            <div>
+              <Repos />
+            </div>
+            <div>
+              <VideoList />
+              <Route path="/videos/:category" component={ VideoNames } />
+              <Route path="/videos/:category/:name" component={ VideoItem } />
+            </div>
+          </IfAuthenticated>
+          <IfNotAuthenticated>
+          </IfNotAuthenticated>
           </div>
         </Router>
       </>

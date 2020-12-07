@@ -1,8 +1,5 @@
 // export const SET_ERROR = 'SET_ERROR'
 export const GET_REPOS = 'GET_REPOS'
-export const ADD_USER = 'ADD_USER'
-export const GET_USERS = 'GET_USERS'
-export const EDIT_USER = 'EDIT_USER'
 
 // function setError(msg) {
 //   return { type: SET_ERROR, msg }

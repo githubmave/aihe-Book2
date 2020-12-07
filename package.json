@@ -53,6 +53,8 @@
     ]
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
     "authenticare": "^0.4.7",
     "express": "^4.17.1",
     "knex": "^0.21.12",
