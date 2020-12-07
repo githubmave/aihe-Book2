@@ -64,8 +64,9 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-// displays all comments 
+
 router.get('/:postId/comments', (req, res) => {
+  // grabs all comments from the single post
   const postId = req.params.postId
 
   db.getPostComments(postId)
@@ -74,15 +75,15 @@ router.get('/:postId/comments', (req, res) => {
     })
 })
 
-// update comment 
 router.patch('/:postId/comments', (req, res) => {
+  // patches the post
   const postId = req.params.postId
 
   const comment = {
     comment: req.body.comment,
     post_id: postId
   }
-
+  // adds new comment to post
   db.createComment(comment)
     .then(id => {
       res.json({
@@ -92,5 +93,7 @@ router.patch('/:postId/comments', (req, res) => {
       })
     })
 })
+
+
 
 module.exports = router

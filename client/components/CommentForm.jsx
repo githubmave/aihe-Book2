@@ -1,7 +1,7 @@
 import React from 'react'
-import {addCommentByForumPost, updateComment} from '../api'
+import {addCommentByForumPost, updateComment} from '../apis/comments'
 
-export class CommentForm extends React.Component {
+export default class CommentForm extends React.Component {
   constructor (props) {
     super(props)
     this.state = {

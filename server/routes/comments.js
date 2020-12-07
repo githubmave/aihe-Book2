@@ -1,5 +1,5 @@
 const express = require('express')
-const db = require('../db/connection')
+const db = require('../db/forum')
 
 const router = express.Router()
 
@@ -25,5 +25,32 @@ router.delete('/:id', (req,res) => {
     res.sendStatus(200)
   })
 })
+
+// router.get('/:postId/comments', (req, res) => {
+//   const postId = req.params.postId
+
+//   db.getPostComments(postId)
+//     .then(comments => {
+//       res.json(comments)
+//     })
+// })
+
+// router.patch('/:postId/comments', (req, res) => {
+//   const postId = req.params.postId
+
+//   const comment = {
+//     comment: req.body.comment,
+//     post_id: postId
+//   }
+
+//   db.createComment(comment)
+//     .then(id => {
+//       res.json({
+//         id: id,
+//         postId: postId,
+//         comment: req.body.comment
+//       })
+//     })
+// })
 
 module.exports = router

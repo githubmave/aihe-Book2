@@ -9,9 +9,6 @@ import Repos from './Repos'
 import Forum from './Forum'
 import Register from './Register'
 import SignIn from './SignIn'
-
-// import {getPosts} from '../api'
-
 export default class App extends React.Component {
   render() {
     return (

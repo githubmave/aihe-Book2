@@ -1,4 +1,3 @@
-
 import request from 'superagent'
 
 export function getAllComments (postId) {
@@ -8,18 +7,18 @@ export function getAllComments (postId) {
       NoSnakeCase(res.body)
       return res.body
     })
-    .catch(errorHandler('GET', '/api/v1/posts/:id/comments'))
 }
 
 export function addCommentByForumPost (postId, comment) {
+  console.log(postId, comment)
   return request
     .post(`/api/v1/posts/${postId}/comments`)
     .send(comment)
     .then(res => {
+      // console.log(res.body)
       NoSnakeCase(res.body)
       return res.body
     })
-    .catch(errorHandler('POST', '/api/v1/posts/:id/comments'))
 }
 
 export function updateComment (comment) {
@@ -30,14 +29,12 @@ export function updateComment (comment) {
       NoSnakeCase(res.body)
       return res.body
     })
-    .catch(errorHandler('PATCH', '/api/v1/comments/:id'))
 }
 
 export function deleteComment (commentId) {
   return request
     .del(`/api/v1/comments/${commentId}`)
     .then(res => res)
-    .catch(errorHandler('DELETE', '/api/v1/comments/:id'))
 }
 
 function NoSnakeCase (response) {

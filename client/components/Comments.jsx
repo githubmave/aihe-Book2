@@ -1,11 +1,10 @@
   
 import React from 'react'
 import {Link, Route} from 'react-router-dom'
-
 import Comment from './Comment'
 import CommentForm from './CommentForm'
 
-export class Comments extends React.Component {
+export default class Comments extends React.Component {
   render () {
     const {postId, comments, fetchComments} = this.props
     return (

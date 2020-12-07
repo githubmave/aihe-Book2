@@ -1,55 +1,59 @@
 import React from 'react'
-import {addCommentByForumPost, updateComment} from '../api'
+import {Switch, Route, Link} from 'react-router-dom'
+import CommentForm from './CommentForm'
 
-export class CommentForm extends React.Component {
+import {deleteComment} from '../apis/comments'
+
+export default class Comments extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      errorMessage: '',
-      comment: props.comment || { comment: '' }
-    }
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.deleteComment = this.deleteComment.bind(this)
   }
 
-  handleSubmit (e) {
-    e.preventDefault()
-    const {comment, match, getComments, history} = this.props
-    if (comment) {
-      updateComment(this.state.comment)
-        .then(() => getComments(comment.postId))
-        .then(() => history.push(`/posts/${comment.postId}`))
-        .catch(err => this.setState({errorMessage: err.message}))
-    } else {
-      addCommentByForumPost(match.params.postId, this.state.comment)
-        .then(() => fetchComments(match.params.postId))
-        .then(() => history.push(`/posts/${match.params.postId}`))
-        .catch(err => this.setState({errorMessage: err.message}))
-    }
+  deleteComment () {
+    deleteComment(this.props.comment.id)
+      .then(() => this.props.fetchComments(this.props.postId))
   }
 
   render () {
+    const {postId, comment, fetchComments} = this.props
     return (
-      <form className="comment-form pure-form" onSubmit={this.handleSubmit}>
-        <input
-          type='text'
-          name='comment'
-          value={this.state.comment.comment}
-          onChange={(e) => {
-            const newComment = 
-            {
-              ...this.state.comment,
-              [e.target.name]: e.target.value
+      <div>
+        <Switch>
+          <Route
+            path={`/posts/${postId}/comments/${comment.id}`}
+            render={(props) =>
+              <CommentForm
+                fetchComments={fetchComments}
+                comment={comment}
+                postId={postId}
+                {...props}
+              />
             }
-            
-            this.setState({
-              comment: newComment
-            })
-          }}
-        />
-        <input className='pure-button' type='submit' />
-        <p>{this.state.errorMessage && this.state.errorMessage}</p>
-      </form>
+          />
+          <Route
+            path={`/posts/${postId}`}
+            render={props => (
+              <div className="comment" key={comment.id}>
+                <p>
+                  <span className="comment-content">{comment.comment}</span>
+                  <span className="comment-date">Date Posted: {new Date(comment.datePosted).toDateString()}</span>
+
+                  <Link to={`/posts/${postId}/comments/${comment.id}`}>
+                    <button className='pure-button'>Edit</button>
+                  </Link>
+
+                  <button
+                    className='pure-button'
+                    onClick={this.deleteComment}>
+                    Delete
+                  </button>
+                </p>
+              </div>
+            )}
+          />
+        </Switch>
+      </div>
     )
   }
 }
-

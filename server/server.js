@@ -6,6 +6,7 @@ const videoRoutes = require('./routes/videos')
 const repos = require('./routes/repos')
 const posts = require('./routes/posts')
 const users = require('./routes/users')
+const comments = require('./routes/comments')
 
 const server = express()
 
@@ -17,6 +18,6 @@ server.use('/api/v1/videos', videoRoutes)
 server.use('/api/v1/repos', repos)
 server.use('/api/v1/posts', posts)
 server.use('/api/v1/users', users)
-server.use('/api/v1/comments')
+server.use('/api/v1/comments', comments)
 
 module.exports = server

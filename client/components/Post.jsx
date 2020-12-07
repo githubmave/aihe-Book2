@@ -1,8 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-// import Comments from './Comments'
-import {deletePost, getCommentsByPostId} from '../apis/forum'
+import Comments from './Comments'
+import {deletePost} from '../apis/forum'
+import {getAllComments} from '../apis/comments'
 
 class Post extends React.Component {
   constructor (props) {
@@ -23,7 +24,7 @@ class Post extends React.Component {
   }
 
   fetchComments (postId) {
-    getCommentsByPostId(postId)
+    getAllComments(postId)
       .then(comments => this.setState({comments: comments}))
       .catch(err => this.setState({errorMessage: err.message}))
   }

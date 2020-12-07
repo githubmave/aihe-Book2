@@ -1,6 +1,6 @@
 const connection = require('./connection')
 
-const _ = require('lodash')
+
 
 function getPostComments(postId, db = connection) {
   return db('Comments')
