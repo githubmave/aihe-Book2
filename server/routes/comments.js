@@ -26,31 +26,5 @@ router.delete('/:id', (req,res) => {
   })
 })
 
-// router.get('/:postId/comments', (req, res) => {
-//   const postId = req.params.postId
-
-//   db.getPostComments(postId)
-//     .then(comments => {
-//       res.json(comments)
-//     })
-// })
-
-// router.patch('/:postId/comments', (req, res) => {
-//   const postId = req.params.postId
-
-//   const comment = {
-//     comment: req.body.comment,
-//     post_id: postId
-//   }
-
-//   db.createComment(comment)
-//     .then(id => {
-//       res.json({
-//         id: id,
-//         postId: postId,
-//         comment: req.body.comment
-//       })
-//     })
-// })
 
 module.exports = router
