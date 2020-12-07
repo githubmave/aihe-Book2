@@ -6,6 +6,7 @@ import VideoList from './VideoList'
 import VideoItem from './VideoItem'
 import VideoNames from './VideoNames'
 import Repos from './Repos'
+import AddRepo from './AddRepo'
 import Register from './Register'
 import SignIn from './SignIn'
 
@@ -21,6 +22,7 @@ export default class App extends React.Component {
           </div>
           <div>
             <Repos />
+            <AddRepo />
           </div>
           <div>
             <VideoList />

@@ -7,6 +7,13 @@ class Repos extends React.Component {
   componentDidMount () {
     getAllRepos(this.props.dispatch)
   }
+   refresh = (e) => {
+        e.preventDefault
+       // addRepo(this.state)
+       getAllRepos(this.props.dispatch)
+
+         
+    }
 
   render () {
     return (
