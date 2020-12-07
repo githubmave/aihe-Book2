@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { register, isAuthenticated } from 'authenticare/client'
 import { baseApiUrl as baseUrl } from '../config'
 
@@ -49,8 +49,35 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function SignUp () {
+export default function SignUp (props) {
   const classes = useStyles()
+
+  const [form, setForm] = useState({
+    username: '',
+    email: '',
+    password: ''
+  })
+
+  const handleChange = e => {
+    const { name, value } = e.target
+    setForm({
+      ...form,
+      [name]: value
+    })
+  }
+
+  const handleClick = e => {
+    e.preventDefault()
+    const { username, email, password } = form
+    return register({ username, email, password }, { baseUrl })
+      .then((token) => {
+        if (isAuthenticated()) {
+          props.history.push(`/${token.id}`)
+          document.location.reload()
+        }
+        return null
+      })
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -60,31 +87,22 @@ export default function SignUp () {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+        🐬 Register for Aihe Book 📚
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleClick}>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
-                autoComplete="fname"
-                name="firstName"
+                autoComplete="username"
+                name="username"
+                value={form.username}
                 variant="outlined"
                 required
                 fullWidth
-                id="firstName"
-                label="First Name"
+                id="username"
+                label="Username"
                 autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -95,7 +113,9 @@ export default function SignUp () {
                 id="email"
                 label="Email Address"
                 name="email"
+                value={form.email}
                 autoComplete="email"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -104,16 +124,18 @@ export default function SignUp () {
                 required
                 fullWidth
                 name="password"
+                value={form.password}
                 label="Password"
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
+                label="I like tickboxes"
               />
             </Grid>
           </Grid>
@@ -128,7 +150,7 @@ export default function SignUp () {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="#/signin" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

@@ -5,6 +5,11 @@ import { logOff } from 'authenticare/client'
 import { IfAuthenticated, IfNotAuthenticated } from './Auth'
 
 export default function Nav () {
+  // const handleLogOff = e => {
+  //   return logOff
+  //     .then(window.location.reload())
+  // }
+
   return (
     <>
       <div>

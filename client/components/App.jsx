@@ -6,7 +6,7 @@ import VideoList from './VideoList'
 import VideoItem from './VideoItem'
 import VideoNames from './VideoNames'
 import Repos from './Repos'
-import Register from './Register'
+import RegisterNew from './RegisterNew'
 import SignInNew from './SignInNew'
 import { IfAuthenticated, IfNotAuthenticated } from './Auth'
 
@@ -17,7 +17,7 @@ export default class App extends React.Component {
         <Router>
           <div className='Navigation'>
             <Route path='/' component={ Nav } />
-            <Route path='/register' component={ Register } />
+            <Route path='/register' component={ RegisterNew } />
             <Route path='/signin' component={ SignInNew } />
           </div>
           <IfAuthenticated>
@@ -31,7 +31,6 @@ export default class App extends React.Component {
             </div>
           </IfAuthenticated>
           <IfNotAuthenticated>
-            <p>Please SignUp or Login</p>
           </IfNotAuthenticated>
         </Router>
       </>
