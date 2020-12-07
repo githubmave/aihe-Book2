@@ -1,3 +1,5 @@
+// this isn't testing the connection.js files, I would suggest having individual tests like repos.test.js, users.test.js etc.
+
 const knex = require('knex')
 const config = require('./knexfile')
 const connection = knex(config.test)
@@ -10,7 +12,7 @@ beforeAll(() => {
 })
 
 beforeEach(() => {
-  return connection.seed.run()
+  return connection.seed.run().catch(console.log)
 })
 
 describe('listRepos', () => {

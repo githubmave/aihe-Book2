@@ -11,6 +11,7 @@ export function addVideo (video) {
   return { type: ADD_VIDEO, video: video }
 }
 
+// this function needs a test
 export function saveVideo (title, link) {
   return (dispatch) => {
     postVideo(title, link)

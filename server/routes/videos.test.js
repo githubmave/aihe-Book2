@@ -2,6 +2,8 @@ const request = require('supertest')
 const { getVideos } = require('../db/videodb')
 const server = require('../server')
 
+// this is a dupicate of server.test.js - remove one of them
+
 const videos = [
   {
     id: 1,

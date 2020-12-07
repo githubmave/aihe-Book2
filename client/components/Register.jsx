@@ -4,6 +4,9 @@ import { baseApiUrl as baseUrl } from '../config'
 
 export default class Register extends React.Component {
   constructor (props) {
+    // I would do this with a state variable instead of constructor
+    // e.g. replace the whole constructor with
+    // state = {username: '', email: '', password: ''}
     super(props)
     this.state = {
       username: '',

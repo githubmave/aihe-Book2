@@ -5,6 +5,7 @@ import { baseApiUrl as baseUrl } from '../config'
 
 export default class SignIn extends React.Component {
   constructor (props) {
+    // I would replace constructor with a class variable to instantiate the state
     super(props)
     this.state = {
       username: '',

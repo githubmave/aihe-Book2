@@ -1,6 +1,8 @@
 import nock from 'nock'
 import { fetchVideos } from './videos'
 
+// good start but video.js needs more coverage
+
 describe('get all videos', () => {
   const fakeVideo = [
     {

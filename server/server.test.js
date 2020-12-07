@@ -3,6 +3,8 @@ import server from './server'
 import { listRepos } from './db/repos'
 import { getVideos } from './db/videodb'
 
+// these tests are duplicated in the routes tests - e.g. repos.test.js - I would delete this one and put the tests in the route specific ones
+
 jest.mock('./db/repos', () => ({
   listRepos: jest.fn(() => Promise.resolve(repos))
 }))
@@ -11,6 +13,7 @@ jest.mock('./db/videodb', () => ({
   getVideos: jest.fn(() => Promise.resolve(videos))
 }))
 
+// I would call this fakeRepos, makes assertions read better
 const repos = [
   {
     id: 1,
@@ -19,6 +22,7 @@ const repos = [
   }
 ]
 
+// same here - fakeVideos
 const videos = [
   {
     id: 1,
@@ -42,6 +46,7 @@ describe('GET /api/v1/repos', () => {
       .then((res) => {
         expect(listRepos).toHaveBeenCalled()
         expect(res.body).toHaveLength(1)
+        // expect(res.body).toEqual(repos) would be better than length 1
         return null
       })
   })
@@ -60,13 +65,33 @@ describe('GET /api/v1/repos', () => {
 
 describe('GET /api/v1/videos', () => {
   test('list of videos', () => {
-    expect.assertions(2)
+    expect.assertions(3)
     return request(server)
       .get('/api/v1/videos')
       .then((res) => {
         expect(getVideos).toHaveBeenCalled()
         expect(res.body).toHaveLength(2)
+        expect(res.body).toEqual(videos)
         return null
       })
   })
+
+  // need a test for posting a video
 })
+
+// need tests for user routes
+//
+// try mocking out getTokenDecoder with a fake function like
+//
+// jest.mock('authenticare/server', () => ({
+//  getTokenDecoder: jest.fn(() => {
+//    return (req, res, next) => {
+//      res.user = fakeUser //if you want to fake a valid token
+//      //throw('sadness') if you want to fake an invalid token
+//      next()
+//    }
+//  })
+//
+// })
+//
+// note you will also need to mock the other authenticare/server functions like applyAuthRoutes or other code will break

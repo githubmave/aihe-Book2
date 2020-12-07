@@ -2,6 +2,8 @@ const request = require('supertest')
 const { listRepos } = require('../db/repos')
 const server = require('../server')
 
+// this test is a duplicate of server/server.testjs - I suggest removing one of them
+
 const repos = [{ id: 1, repo_name: 'dog-tinder', repo_link: 'https://github.com/aihe-2020/dog-tinder' }]
 
 jest.mock('../db/repos', () => ({

@@ -1,5 +1,5 @@
 import request from 'superagent'
-// c
+// c - I would delete the crud mnemonic after you are done with it
 export function postVideo (title, link) {
   return request
     .post('/api/v1/videos')

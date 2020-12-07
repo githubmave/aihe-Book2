@@ -1,5 +1,6 @@
 import { ADD_USER, GET_USERS, EDIT_USER } from '../actions/index'
 
+// who did this reducer offend which made you leave it untested? Mean.
 const users = (state = [], action) => {
   switch (action.type) {
     case GET_USERS:

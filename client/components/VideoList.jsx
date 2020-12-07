@@ -9,6 +9,7 @@ import { fetchVideos } from '../apis/videos'
 class VideoList extends React.Component {
   componentDidMount () {
     fetchVideos()
+      // maybe just return null instead?
       // eslint-disable-next-line promise/always-return
       .then((videoData) => {
         this.props.dispatch(receiveVideos(videoData))
@@ -17,13 +18,14 @@ class VideoList extends React.Component {
   }
 
   render () {
+    // should remove all client side debugging code before getting in to master
     console.log('videos from videoList', this.props.videos)
     return (
       <>
         <ul>
           {this.props.videos.map((video, i) => (
             <li key={i}>
-              {' '}
+              {' ' /* this is a little hacky, use css to control spacing */}
               <Link to={`/videos/${video.video_category}`}>
                 {' '}
                 {video.video_category}
@@ -32,7 +34,7 @@ class VideoList extends React.Component {
           ))}
         </ul>
 
-        {/* <VideoNames /> */}
+        {/* <VideoNames />  - just delete things instead of commenting them out */}
       </>
     )
   }
