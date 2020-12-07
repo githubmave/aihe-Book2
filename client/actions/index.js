@@ -35,3 +35,11 @@ export const editUser = (user) => {
     user
   }
 }
+
+export const updateComment = (updatedComment, id) => {
+  return {
+    type: UPDATE_COMMENT,
+    updatedComment,
+    id
+  }
+}

@@ -17,5 +17,6 @@ server.use('/api/v1/videos', videoRoutes)
 server.use('/api/v1/repos', repos)
 server.use('/api/v1/posts', posts)
 server.use('/api/v1/users', users)
+server.use('/api/v1/comments')
 
 module.exports = server
