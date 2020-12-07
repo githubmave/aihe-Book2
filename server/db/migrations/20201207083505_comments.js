@@ -1,5 +1,5 @@
 exports.up = (knex) => {
-  return knex.schema.createTable('Comments', (table) => {
+  return knex.schema.createTable('comments', (table) => {
     table.increments().primary()
     table.integer('post_id').references('Posts.id')
     table.date('date_posted')
@@ -8,5 +8,5 @@ exports.up = (knex) => {
 }
 
 exports.down = (knex) => {
-  return knex.schema.dropTable('Comments')
+  return knex.schema.dropTable('comments')
 }
