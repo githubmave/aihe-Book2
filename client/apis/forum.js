@@ -41,41 +41,6 @@ export function deletePost (postId) {
     .catch(errorHandler('DELETE', '/api/v1/posts/:id'))
 }
 
-// export function getCommentsByPostId (postId) {
-//   return request.get(`/api/v1/posts/${postId}/comments`)
-//     .then(res => {
-//       validateNoSnakeCase(res.body)
-//       return res.body
-//     })
-//     .catch(errorHandler('GET', '/api/v1/posts/:id/comments'))
-// }
-
-// export function addCommentByPostId (postId, comment) {
-//   return request.post(`/api/v1/posts/${postId}/comments`)
-//     .send(comment)
-//     .then(res => {
-//       validateNoSnakeCase(res.body)
-//       return res.body
-//     })
-//     .catch(errorHandler('POST', '/api/v1/posts/:id/comments'))
-// }
-
-// export function updateComment (comment) {
-//   return request.patch(`/api/v1/comments/${comment.id}`)
-//     .send(comment)
-//     .then(res => {
-//       validateNoSnakeCase(res.body)
-//       return res.body
-//     })
-//     .catch(errorHandler('PATCH', '/api/v1/comments/:id'))
-// }
-
-// export function deleteComment (commentId) {
-//   return request.del(`/api/v1/comments/${commentId}`)
-//     .then(res => res)
-//     .catch(errorHandler('DELETE', '/api/v1/comments/:id'))
-// }
-
 function errorHandler (method, route) {
   return (err) => {
     if (err.message === 'Not Found') {
