@@ -20,7 +20,7 @@ class PostForm extends React.Component {
     if (post) this.setNewPost(post)
   }
 
-  componentWillReceiveProps (nextProps) {
+  UNSAFE_componentWillReceiveProps (nextProps) {
     const {post} = nextProps
     if (post && !this.props.post) this.setNewPost(post)
   }

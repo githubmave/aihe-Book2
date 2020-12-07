@@ -89,20 +89,18 @@ router.patch('/:postId/comments', (req, res) => {
 
 router.post('/:postId/comments', (req, res) => {
   // id # of the post that was sent
+  console.log(req.body)
   const comment = {
-    comment: req.body.comment,
+    comment: req.body.comment.comment,
     post_id: req.body.postId,
     date_posted: new Date(Date.now())
   }
-  
+
+  console.log(comment)
 
   db.createComment(comment)
-    .then((id) =>
-      res.json({
-        id: id,
-        post_id: req.body.postId,
-        comment: req.body.comment
-      })
+    .then((newComment) =>
+      res.json(newComment)
   )
 })
 
