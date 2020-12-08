@@ -1,10 +1,17 @@
 import React from 'react'
+import YouTube from 'react-youtube'
 import { Link, useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const VideoNames = (props) => {
   const { category } = useParams()
-  console.log('category is: ', category)
+  const opts = {
+    height: '390',
+    width: '640',
+    playerVars: {
+      autoplay: 1,
+    },
+  }
 
   return (
     <div>
@@ -12,14 +19,8 @@ const VideoNames = (props) => {
         {props.videos.map((video, i) => {
           if (video.video_category === category) {
             return (
-              <li key={i}>
-                {' '}
-                <Link
-                  to={`/videos/${video.video_category}/${video.video_name}`}
-                >
-                  {' '}
-                  {video.video_name}
-                </Link>
+              <li>
+                <YouTube videoId={video.video_link} opts={opts} />
               </li>
             )
           }
@@ -31,7 +32,7 @@ const VideoNames = (props) => {
 
 const mapStateToProps = (globalState) => {
   return {
-    videos: globalState.videos
+    videos: globalState.videos,
   }
 }
 
