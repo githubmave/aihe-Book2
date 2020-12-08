@@ -1,5 +1,8 @@
 import React from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
+import { Widget } from 'react-chat-widget'
+
+import 'react-chat-widget/lib/styles.css'
 
 import Nav from './Nav'
 import VideoList from './VideoList'
@@ -11,6 +14,11 @@ import Login from './Login'
 import { IfAuthenticated, IfNotAuthenticated } from './Auth'
 
 export default class App extends React.Component {
+  handleNewUserMessage = (newMessage) => {
+    console.log(`New message incoming! ${newMessage}`)
+    // Now send the message through the backend API
+  }
+
   render () {
     return (
       <>
@@ -29,6 +37,9 @@ export default class App extends React.Component {
               <Route path="/videos/:category" component={ VideoNames } />
               <Route path="/videos/:category/:name" component={ VideoItem } />
             </div>
+            <Widget
+              handleNewUserMessage={ this.handleNewUserMessage }
+            />
           </IfAuthenticated>
           <IfNotAuthenticated>
           </IfNotAuthenticated>
