@@ -10,7 +10,7 @@ exports.seed = function (knex) {
           video_name: 'authentication',
           video_link: 'https://www.youtube.com/watch?v=j3d5NdG6c6k',
           video_category: 'auth',
-          cat_id: 1 
+          cat_id: 1
         },
         {
           id: 2,
@@ -46,7 +46,7 @@ exports.seed = function (knex) {
           video_link: 'https://www.youtube.com/watch?v=FDx1B0QBrd4&list=PL_AE4CqTqcwLc2Zuz0v50qrI5xFAoy8Ug&index=13',
           video_category: 'react',
           cat_id: 3
-        },
+        }
       ])
     })
 }

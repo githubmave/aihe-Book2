@@ -5,13 +5,13 @@ import { connect } from 'react-redux'
 
 let youtubeID = ''
 
-function YouTubeGetID(url) {
+function YouTubeGetID (url) {
   var ID = ''
   url = url
     .replace(/(>|<)/gi, '')
     .split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/)
   if (url[2] !== undefined) {
-    ID = url[2].split(/[^0-9a-z_\-]/i)
+    ID = url[2].split(/[^0-9a-z_]/i)
     ID = ID[0]
     youtubeID = ID
   } else {
@@ -26,8 +26,8 @@ const VideoNames = (props) => {
     height: '390',
     width: '640',
     playerVars: {
-      autoplay: 0,
-    },
+      autoplay: 0
+    }
   }
 
   return (
@@ -50,7 +50,7 @@ const VideoNames = (props) => {
 
 const mapStateToProps = (globalState) => {
   return {
-    videos: globalState.videos,
+    videos: globalState.videos
   }
 }
 

@@ -28,7 +28,7 @@ const VideoNames = (props) => {
 
 const mapStateToProps = (globalState) => {
   return {
-    videos: globalState.videos,
+    videos: globalState.videos
   }
 }
 

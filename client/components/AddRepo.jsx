@@ -1,20 +1,20 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addRepo, getAllRepos } from '../apis/repos'
+import { addRepo } from '../apis/repos'
 
 class AddRepo extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       repo_name: '',
-      repo_link: '',
+      repo_link: ''
     }
   }
 
   handleChange = (e) => {
     const { name, value } = e.target
     return this.setState({
-      [name]: value,
+      [name]: value
     })
   }
 
@@ -23,11 +23,11 @@ class AddRepo extends React.Component {
     addRepo(this.state)
     this.setState({
       repo_name: '',
-      repo_link: '',
+      repo_link: ''
     })
   }
 
-  render() {
+  render () {
     return (
       <>
         <form onSubmit={this.handleSubmit}>

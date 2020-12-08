@@ -16,17 +16,15 @@ export function getAllRepos (dispatch) {
 }
 
 export function addRepo (newRepo) {
-  console.log("Fr. api addRepo",newRepo)
+  console.log('Fr. api addRepo', newRepo)
   return request
     .post('/api/v1/repos')
-    .send({repo_name: newRepo.repo_name, repo_link: newRepo.repo_link})
-    .then( res => {
-      console.log("api addRepo .res: ",res.body)
-            res.body})
-    
+    .send({ repo_name: newRepo.repo_name, repo_link: newRepo.repo_link })
+    .then(res => {
+      return res.body
+    })
+    .catch(logError)
 }
- 
-
 
 function logError (err) {
   if (err.message === 'Forbidden') {

@@ -6,41 +6,34 @@ const db = require('../db/repos')
 router.get('/', (req, res) => {
   db.listRepos()
     .then(repos => {
-      res.json(repos)
-      //return null
+      return res.json(repos)
     })
     .catch(err => {
       res.status(500).send(err.message)
     })
 })
 
-router.get('/:id',(req,res)=> {
-  
- let id = req.params.id
+router.get('/:id', (req, res) => {
+  const id = req.params.id
   db.getRepoById(id)
     .then(repo => {
-      res.json(repo)
-
-     })
-   .catch( err => {
+      return res.json(repo)
+    })
+    .catch(err => {
       res.status(500).send(err.message)
-   })
-
+    })
 })
 
-router.post('/',(req,res)=> {
-   const newRepo = req.body
-  
-   
+router.post('/', (req, res) => {
+  const newRepo = req.body
+
   // console.log( "fr. router.post",req.body)
-   db.addRepo(newRepo)
-     .then(newRepo => {
-       res.json(newRepo)
-
-      })
-    .catch( err => {
-       res.status(500).send(err.message)
+  db.addRepo(newRepo)
+    .then(newRepo => {
+      return res.json(newRepo)
     })
-
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
 })
 module.exports = router

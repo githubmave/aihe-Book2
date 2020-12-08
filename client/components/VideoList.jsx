@@ -6,18 +6,18 @@ import { receiveVideos } from '../actions/videos'
 import { fetchVideos } from '../apis/videos'
 
 class VideoList extends React.Component {
-  componentDidMount() {
+  componentDidMount () {
     fetchVideos()
       // eslint-disable-next-line no-console
       .then((videoData) => {
-        this.props.dispatch(receiveVideos(videoData))
+        return this.props.dispatch(receiveVideos(videoData))
       })
       .catch((err) => console.log(err))
   }
 
   categoryList = ['auth', 'react', 'express']
 
-  render() {
+  render () {
     return (
       <>
         <ul>
@@ -34,7 +34,7 @@ class VideoList extends React.Component {
 
 const mapStateToProps = (globalState) => {
   return {
-    videos: globalState.videos,
+    videos: globalState.videos
   }
 }
 
