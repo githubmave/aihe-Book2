@@ -1,6 +1,6 @@
 import React from 'react'
 import YouTube from 'react-youtube'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 const VideoNames = (props) => {
@@ -9,8 +9,8 @@ const VideoNames = (props) => {
     height: '390',
     width: '640',
     playerVars: {
-      autoplay: 1,
-    },
+      autoplay: 1
+    }
   }
 
   return (
@@ -32,7 +32,7 @@ const VideoNames = (props) => {
 
 const mapStateToProps = (globalState) => {
   return {
-    videos: globalState.videos,
+    videos: globalState.videos
   }
 }
 
