@@ -8,24 +8,22 @@ import { fetchVideos } from '../apis/videos'
 class VideoList extends React.Component {
   componentDidMount() {
     fetchVideos()
-    // eslint-disable-next-line no-console
+      // eslint-disable-next-line no-console
       .then((videoData) => {
         this.props.dispatch(receiveVideos(videoData))
       })
       .catch((err) => console.log(err))
   }
 
+  categoryList = ['auth', 'react', 'express']
+
   render() {
     return (
       <>
         <ul>
-          {this.props.videos.map((video, i) => (
+          {this.categoryList.map((video, i) => (
             <li key={i}>
-              {' '}
-              <Link to={`/videos/${video.video_category}`}>
-                {' '}
-                {video.video_category}
-              </Link>
+              <Link to={`/videos/${video}`}>{video}</Link>
             </li>
           ))}
         </ul>

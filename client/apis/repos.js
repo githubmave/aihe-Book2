@@ -15,6 +15,19 @@ export function getAllRepos (dispatch) {
     .catch(logError)
 }
 
+export function addRepo (newRepo) {
+  console.log("Fr. api addRepo",newRepo)
+  return request
+    .post('/api/v1/repos')
+    .send({repo_name: newRepo.repo_name, repo_link: newRepo.repo_link})
+    .then( res => {
+      console.log("api addRepo .res: ",res.body)
+            res.body})
+    
+}
+ 
+
+
 function logError (err) {
   if (err.message === 'Forbidden') {
     throw new Error('Only the user who added the repo may update and delete it')
