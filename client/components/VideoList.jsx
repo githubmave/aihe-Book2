@@ -16,17 +16,20 @@ class VideoList extends React.Component {
       .catch((err) => console.log(err))
   }
 
+  //THIS DATA NEEDS TO COME FROM CATEGORY TABLE NOT VIDEO TABLE
+  categegoryList = [ 'auth', 'react', 'express' ]
+
   render () {
     console.log('videos from videoList', this.props.videos)
     return (
       <>
         <ul>
-          {this.props.videos.map((video, i) => (
+          {this.categegoryList.map((video, i) => (
             <li key={i}>
-              {' '}
-              <Link to={`/videos/${video.video_category}`}>
-                {' '}
-                {video.video_category}
+              
+              <Link to={`/videos/${video}`}>
+                
+                {video}
               </Link>
             </li>
           ))}

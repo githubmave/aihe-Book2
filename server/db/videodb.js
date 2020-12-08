@@ -5,11 +5,15 @@ function findVideo (id, db = connection) {
 }
 
 // c
-function addVideo (title, link, db = connection) {
-  return db('videos')
-    .insert({ title, link })
+//function addVideo (title, link, db = connection) {
+  function addVideo (newVideo, db = connection) {
+    return db('videos')
+    .insert(newVideo)
     .then((ids) => {
       return findVideo(ids[0], db)
+
+      // return db('videoCats')
+      // .insert(newVideo.cat_id)
     })
 }
 

@@ -40,7 +40,7 @@ class AddRepo extends React.Component {
     render(){
         return(
             <>
-            <h >I want to add a repo</h>
+            <p >I want to add a repo</p>
  
             <form onSubmit = {this.handleSubmit}>
                 <label>

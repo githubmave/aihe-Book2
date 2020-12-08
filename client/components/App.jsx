@@ -5,6 +5,7 @@ import Nav from './Nav'
 import VideoList from './VideoList'
 import VideoItem from './VideoItem'
 import VideoNames from './VideoNames'
+import AddVideo from './AddVideo'
 import Repos from './Repos'
 import AddRepo from './AddRepo'
 import Register from './Register'
@@ -28,6 +29,7 @@ export default class App extends React.Component {
             <VideoList />
             <Route path="/videos/:category" component={ VideoNames } />
             <Route path="/videos/:category/:name" component={ VideoItem } />
+            <AddVideo />
           </div>
         </Router>
       </>
