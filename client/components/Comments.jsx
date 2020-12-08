@@ -1,6 +1,6 @@
   
 import React from 'react'
-import {Link, Route} from 'react-router-dom'
+import {HashRouter as Router, Link, Route} from 'react-router-dom'
 import Comment from './Comment'
 import CommentForm from './CommentForm'
 
@@ -8,6 +8,7 @@ export default class Comments extends React.Component {
   render () {
     const {postId, comments, fetchComments} = this.props
     return (
+      <Router>
       <div>
         <p>
           <Link
@@ -36,6 +37,7 @@ export default class Comments extends React.Component {
           ))}
         </div>
       </div>
+      </Router>
     )
   }
 }
