@@ -16,7 +16,6 @@ export default class App extends React.Component {
     return (
       <>
         <Router>
-
           <div className='Navigation'>
             <Route path='/' component={ Nav } />
             <Route path='/signup' component={ SignUp } />
