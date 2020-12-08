@@ -1,5 +1,5 @@
 import React from 'react'
-import {addCommentByForumPost, updateComment} from '../apis/comments'
+import { addCommentByForumPost, updateComment } from '../apis/comments'
 
 export default class CommentForm extends React.Component {
   constructor (props) {
@@ -13,17 +13,17 @@ export default class CommentForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault()
-    const {comment, match, fetchComments, history} = this.props
+    const { comment, match, fetchComments, history } = this.props
     if (comment) {
       updateComment(this.state.comment)
         .then(() => fetchComments(comment.postId))
         .then(() => history.push(`/posts/${comment.postId}`))
-        .catch(err => this.setState({errorMessage: err.message}))
+        .catch(err => this.setState({ errorMessage: err.message }))
     } else {
       addCommentByForumPost(match.params.postId, this.state.comment)
         .then(() => fetchComments(match.params.postId))
         .then(() => history.push(`/posts/${match.params.postId}`))
-        .catch(err => this.setState({errorMessage: err.message}))
+        .catch(err => this.setState({ errorMessage: err.message }))
     }
   }
 
@@ -35,12 +35,12 @@ export default class CommentForm extends React.Component {
           name='comment'
           value={this.state.comment.comment}
           onChange={(e) => {
-            const newComment = 
+            const newComment =
             {
               ...this.state.comment,
               [e.target.name]: e.target.value
             }
-            
+
             this.setState({
               comment: newComment
             })

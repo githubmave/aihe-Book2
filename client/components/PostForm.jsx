@@ -1,5 +1,7 @@
+/* eslint-disable promise/no-nesting */
+/* eslint-disable promise/catch-or-return */
 import React from 'react'
-import {addPost, updatePost} from '../apis/forum'
+import { addPost, updatePost } from '../apis/forum'
 
 class PostForm extends React.Component {
   constructor (props) {
@@ -16,13 +18,8 @@ class PostForm extends React.Component {
   }
 
   componentDidMount () {
-    const {post} = this.props
+    const { post } = this.props
     if (post) this.setNewPost(post)
-  }
-
-  UNSAFE_componentWillReceiveProps (nextProps) {
-    const {post} = nextProps
-    if (post && !this.props.post) this.setNewPost(post)
   }
 
   setNewPost (post) {
@@ -36,20 +33,21 @@ class PostForm extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault()
-    const {post, history, fetchPosts} = this.props
+    const { post, history, fetchPosts } = this.props
 
     if (post) {
       updatePost(this.state.post)
         .then(fetchPosts)
         .then(navigateToPost(post.id))
-        .catch(err => this.setState({errorMessage: err.message}))
+        .catch(err => this.setState({ errorMessage: err.message }))
     } else {
       addPost(this.state.post)
+        // eslint-disable-next-line promise/always-return
         .then(newPost => {
           fetchPosts()
             .then(navigateToPost(newPost.id))
         })
-        .catch(err => this.setState({errorMessage: err.message}))
+        .catch(err => this.setState({ errorMessage: err.message }))
     }
 
     function navigateToPost (id) {
@@ -62,7 +60,7 @@ class PostForm extends React.Component {
       ...this.state.post,
       [e.target.name]: e.target.value
     }
-    
+
     this.setState({
       post: newPost
     })

@@ -1,3 +1,5 @@
+/* eslint-disable promise/catch-or-return */
+/* eslint-disable promise/always-return */
 const express = require('express')
 
 const db = require('../db/forum')
@@ -24,7 +26,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const post = {
     title: req.body.title,
-    paragraphs: req.body.paragraphs,
+    paragraphs: req.body.paragraphs
   }
 
   db.createPost(post)
@@ -41,7 +43,7 @@ router.patch('/:id', (req, res) => {
 
   const post = {
     title: req.body.title,
-    paragraphs: req.body.paragraphs,
+    paragraphs: req.body.paragraphs
   }
 
   db.updatePost(id, post)
@@ -75,7 +77,7 @@ router.patch('/:postId/comments', (req, res) => {
 
   const comment = {
     comment: req.body.comment,
-    post_id: postId,
+    post_id: postId
   }
   // pastes the new comment
   db.createComment(comment).then((id) => {
@@ -101,7 +103,7 @@ router.post('/:postId/comments', (req, res) => {
   db.createComment(comment)
     .then((newComment) =>
       res.json(newComment)
-  )
+    )
 })
 
 module.exports = router

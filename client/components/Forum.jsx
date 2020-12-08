@@ -4,7 +4,7 @@ import Header from './Header'
 import Footer from './Footer'
 import AppRoutes from './ForumRoutes'
 
-import {getPosts} from '../apis/forum'
+import { getPosts } from '../apis/forum'
 
 class App extends React.Component {
   constructor (props) {
@@ -23,10 +23,11 @@ class App extends React.Component {
   fetchPosts () {
     return getPosts()
       .then(posts => {
-        this.setState({posts: posts})
+        this.setState({ posts: posts })
+        return null
       })
       .catch(err => {
-        this.setState({errorMessage: err.message})
+        this.setState({ errorMessage: err.message })
       })
   }
 

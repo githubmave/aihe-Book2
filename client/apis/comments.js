@@ -8,15 +8,15 @@ export function getAllComments (postId) {
       return res.body
     })
 }
-// this is breaking the addComment 
+// this is breaking the addComment
 // this is the client api
 export function addCommentByForumPost (postId, comment) {
   console.log(postId, comment)
   // the postId is the id from the post seed file
-  // is this the right route to be hitting? 
+  // is this the right route to be hitting?
   return request
     .post(`/api/v1/posts/${postId}/comments`)
-    .send({postId, comment})
+    .send({ postId, comment })
     .then(res => {
       NoSnakeCase(res.body)
       return res.body

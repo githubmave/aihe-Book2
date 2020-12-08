@@ -11,32 +11,3 @@ export const getRepos = (repos) => {
     repos: repos
   }
 }
-
-export const addUser = (user) => {
-  return {
-    type: ADD_USER,
-    user
-  }
-}
-
-export const getUsers = (users) => {
-  return {
-    type: GET_USERS,
-    users: users
-  }
-}
-
-export const editUser = (user) => {
-  return {
-    type: EDIT_USER,
-    user
-  }
-}
-
-export const updateComment = (updatedComment, id) => {
-  return {
-    type: UPDATE_COMMENT,
-    updatedComment,
-    id
-  }
-}

@@ -1,8 +1,9 @@
+/* eslint-disable promise/catch-or-return */
 import React from 'react'
-import {Switch, Route, Link} from 'react-router-dom'
+import { Switch, Route, Link } from 'react-router-dom'
 import CommentForm from './CommentForm'
 
-import {deleteComment} from '../apis/comments'
+import { deleteComment } from '../apis/comments'
 
 export default class Comments extends React.Component {
   constructor (props) {
@@ -16,7 +17,7 @@ export default class Comments extends React.Component {
   }
 
   render () {
-    const {postId, comment, fetchComments} = this.props
+    const { postId, comment, fetchComments } = this.props
     return (
       <div>
         <Switch>

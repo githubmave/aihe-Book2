@@ -1,12 +1,12 @@
 const _ = require('lodash')
 
-function convertKeysSnakeCaseToCamelCase(obj) {
+function convertKeysSnakeCaseToCamelCase (obj) {
   return _.mapKeys(obj, (value, key) => {
     return _.camelCase(key)
   })
 }
 
-function convertKeysCamelCaseToSnakeCase(obj) {
+function convertKeysCamelCaseToSnakeCase (obj) {
   return _.mapKeys(obj, (value, key) => {
     return _.snakeCase(key)
   })
@@ -14,5 +14,5 @@ function convertKeysCamelCaseToSnakeCase(obj) {
 
 module.exports = {
   convertKeysSnakeCaseToCamelCase,
-  convertKeysCamelCaseToSnakeCase,
+  convertKeysCamelCaseToSnakeCase
 }

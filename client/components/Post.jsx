@@ -1,9 +1,9 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Comments from './Comments'
-import {deletePost} from '../apis/forum'
-import {getAllComments} from '../apis/comments'
+import { deletePost } from '../apis/forum'
+import { getAllComments } from '../apis/comments'
 
 class Post extends React.Component {
   constructor (props) {
@@ -25,19 +25,19 @@ class Post extends React.Component {
 
   fetchComments (postId) {
     getAllComments(postId)
-      .then(comments => this.setState({comments: comments}))
-      .catch(err => this.setState({errorMessage: err.message}))
+      .then(comments => this.setState({ comments: comments }))
+      .catch(err => this.setState({ errorMessage: err.message }))
   }
 
   deletePost () {
     deletePost(this.props.post.id)
       .then(this.props.fetchPosts)
-      .then(() => this.props.history.push(`/`))
-      .catch(err => this.setState({errorMessage: err.message}))
+      .then(() => this.props.history.push('/'))
+      .catch(err => this.setState({ errorMessage: err.message }))
   }
 
   render () {
-    const {title, paragraphs, dateCreated, id} = this.props.post
+    const { title, paragraphs, dateCreated, id } = this.props.post
     return (
       <div className='post'>
         <Link to={`/posts/${id}`}>

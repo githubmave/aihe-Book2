@@ -8,7 +8,7 @@ exports.seed = function (knex) {
         generateHash('mave'),
         generateHash('lukin'),
         generateHash('kienan'),
-        generateHash('jayden'),
+        generateHash('jayden')
       ])
     )
     .then(([maveHash, lukinHash, kienanHash, jaydenHash]) =>
@@ -17,26 +17,26 @@ exports.seed = function (knex) {
           id: 1,
           username: 'Mave',
           email: 'mave@email.com',
-          password: maveHash,
+          password: maveHash
         },
         {
           id: 2,
           username: 'Lukin',
           email: 'lukin@email.com',
-          password: lukinHash,
+          password: lukinHash
         },
         {
           id: 3,
           username: 'Kienan',
           email: 'kienan@email.com',
-          password: kienanHash,
+          password: kienanHash
         },
         {
           id: 4,
           username: 'Jayden',
           email: 'jayden@email.com',
-          password: jaydenHash,
-        },
+          password: jaydenHash
+        }
       ])
     )
 }

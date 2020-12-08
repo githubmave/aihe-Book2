@@ -12,7 +12,7 @@ import Login from './Login'
 import { IfAuthenticated, IfNotAuthenticated } from './Auth'
 
 export default class App extends React.Component {
-  render() {
+  render () {
     return (
       <>
         <Router>
@@ -35,18 +35,18 @@ export default class App extends React.Component {
           <div>
             <h1>Forum</h1>
             <Forum />
-          <IfAuthenticated>
-            <div>
-              <Repos />
-            </div>
-            <div>
-              <VideoList />
-              <Route path="/videos/:category" component={ VideoNames } />
-              <Route path="/videos/:category/:name" component={ VideoItem } />
-            </div>
-          </IfAuthenticated>
-          <IfNotAuthenticated>
-          </IfNotAuthenticated>
+            <IfAuthenticated>
+              <div>
+                <Repos />
+              </div>
+              <div>
+                <VideoList />
+                <Route path="/videos/:category" component={ VideoNames } />
+                <Route path="/videos/:category/:name" component={ VideoItem } />
+              </div>
+            </IfAuthenticated>
+            <IfNotAuthenticated>
+            </IfNotAuthenticated>
           </div>
         </Router>
       </>
