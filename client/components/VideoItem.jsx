@@ -11,7 +11,7 @@ const VideoItem = (props) => {
       <ul>
         {props.videos.map((video, i) => {
           if (video.video_name === name) {
-            return <a key={i} href={video.video_link}>{video.video_name}</a>
+            return <a key={i} href={video.video_link}><li>{video.video_name}</li></a>
           }
         })}
       </ul>
