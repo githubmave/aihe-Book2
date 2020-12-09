@@ -1,9 +1,13 @@
 import request from 'superagent'
 // c
-export function postVideo (title, link) {
+export function postVideo (newVideo) {
   return request
     .post('/api/v1/videos')
-    .send({ title, link })
+    .send({
+      video_name: newVideo.video_name,
+      video_link: newVideo.video_link,
+      video_category: newVideo.video_category
+    })
     .then((response) => response.body)
     .catch(logError)
 }
