@@ -2,7 +2,6 @@
 import React from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 import Box from '@material-ui/core/Box'
-import { borders } from '@material-ui/system'
 
 import CommentForm from './CommentForm'
 import { deleteComment } from '../apis/comments'
