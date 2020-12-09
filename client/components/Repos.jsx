@@ -21,12 +21,12 @@ class Repos extends React.Component {
      return (
        <Container maxWidth="sm">
          <h1>Repos</h1>
+         <AddRepo />
          <ul>
            {this.props.repos.map((repo) => {
              return <Repo key={repo.id} repo={repo} />
            })}
          </ul>
-         <AddRepo />
        </Container>
      )
    }

@@ -66,6 +66,7 @@ class AddVideo extends React.Component {
             />
             <FormHelperText>Required</FormHelperText>
           </FormControl>
+          <p></p>
           <FormControl className={ this.useStyles.root } required>
             <InputLabel htmlFor="video_link">Video Link</InputLabel>
             <Input id="video_link"
@@ -76,6 +77,7 @@ class AddVideo extends React.Component {
             />
             <FormHelperText>Required</FormHelperText>
           </FormControl>
+          <p></p>
           <FormControl className={ this.useStyles.root } required>
             <FormLabel htmlFor="video_category">Video Category</FormLabel>
             <RadioGroup aria-label="video-category" name="video_category" value={ this.state.video_category } onChange={ this.handleChange }>
@@ -85,6 +87,7 @@ class AddVideo extends React.Component {
             </RadioGroup>
             <FormHelperText>Required</FormHelperText>
           </FormControl>
+          <p></p>
           <FormControl>
             <Button
               type="submit"

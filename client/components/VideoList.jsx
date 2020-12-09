@@ -26,8 +26,6 @@ class VideoList extends React.Component {
       <Container maxWidth="sm">
         <Router>
           <h1>Videos</h1>
-          <Route path="/videos/:category" component={VideoNames} />
-          <Route path="/videos/:category/:name" component={VideoPlay} />
           <AddVideo />
           <ul>
             {this.categoryList.map((video, i) => (
@@ -36,6 +34,8 @@ class VideoList extends React.Component {
               </li>
             ))}
           </ul>
+          <Route path="/videos/:category" component={VideoNames} />
+          <Route path="/videos/:category/:name" component={VideoPlay} />
         </Router>
       </Container>
     )

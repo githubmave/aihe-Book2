@@ -6,6 +6,7 @@ import Login from './Login'
 import Nav from './Nav'
 import TabNav from './TabNav'
 import SignUp from './SignUp'
+import Footer from './Footer'
 export default class App extends React.Component {
   render () {
     return (
@@ -23,6 +24,7 @@ export default class App extends React.Component {
           </IfAuthenticated>
           <IfNotAuthenticated>
           </IfNotAuthenticated>
+          <Footer />
         </Router>
       </>
     )
