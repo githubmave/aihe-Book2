@@ -17,7 +17,7 @@ describe('listRepos', () => {
   test('lists the repos', () => {
     expect.assertions(2)
     return listRepos(connection).then((repos) => {
-      expect(repos).toHaveLength(3)
+      expect(repos).toHaveLength(57)
       expect(repos[0].repo_name).toEqual('dog-tinder')
       return null
     })

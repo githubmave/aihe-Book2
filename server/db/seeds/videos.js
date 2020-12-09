@@ -104,3 +104,5 @@ exports.seed = function (knex) {
       ])
     })
 }
+
+// https://www.youtube.com/playlist?list=PL_AE4CqTqcwLc2Zuz0v50qrI5xFAoy8Ug
