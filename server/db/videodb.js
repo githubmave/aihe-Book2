@@ -16,7 +16,6 @@ function getVideos (db = connection) {
   return db('videos').select()
 }
 
-
 module.exports = {
   findVideo,
   addVideo,
