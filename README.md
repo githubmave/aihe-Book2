@@ -14,6 +14,11 @@ You can find the server running on [http://localhost:3000](http://localhost:3000
 
 A place to keep in touch with rest of Aihe!
 Potential use cases include 
+[redacted]
+[redacted]
+[redacted]
+
+
 
 
 
