@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 const VideoNames = (props) => {
   const { category } = useParams()
-
   return (
     <div>
       <ul>
