@@ -1,10 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
 import { receiveVideos } from '../actions/videos'
 import { fetchVideos } from '../apis/videos'
 
+import VideoNames from './VideoNames'
+import VideoPlay from './VideoPlay'
+import AddVideo from './AddVideo'
 class VideoList extends React.Component {
   componentDidMount () {
     fetchVideos()
@@ -19,7 +22,11 @@ class VideoList extends React.Component {
 
   render () {
     return (
-      <>
+      <Router>
+        <h1>Videos</h1>
+        <Route path="/videos/:category" component={VideoNames} />
+        <Route path="/videos/:category/:name" component={VideoPlay} />
+        <AddVideo />
         <ul>
           {this.categoryList.map((video, i) => (
             <li key={i}>
@@ -27,7 +34,7 @@ class VideoList extends React.Component {
             </li>
           ))}
         </ul>
-      </>
+      </Router>
     )
   }
 }

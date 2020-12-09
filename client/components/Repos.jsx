@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import Repo from './Repo'
 import { getAllRepos } from '../apis/repos'
 
+import AddRepo from './AddRepo'
+
 class Repos extends React.Component {
   componentDidMount () {
     getAllRepos(this.props.dispatch)
@@ -16,11 +18,15 @@ class Repos extends React.Component {
 
    render () {
      return (
-       <ul>
-         {this.props.repos.map((repo) => {
-           return <Repo key={repo.id} repo={repo} />
-         })}
-       </ul>
+       <>
+         <h1>Repos</h1>
+         <ul>
+           {this.props.repos.map((repo) => {
+             return <Repo key={repo.id} repo={repo} />
+           })}
+         </ul>
+         <AddRepo />
+       </>
      )
    }
 }
