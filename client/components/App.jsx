@@ -38,6 +38,7 @@ export default class App extends React.Component {
             </div>
           </IfAuthenticated>
           <IfNotAuthenticated>
+            <Login />
           </IfNotAuthenticated>
         </Router>
       </>
