@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink, useHistory } from 'react-router-dom'
 import { logOff } from 'authenticare/client'
 import { IfAuthenticated, IfNotAuthenticated } from './Auth'
 
@@ -9,7 +9,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
-import HomeIcon from '@material-ui/icons/Menu'
+import HomeIcon from '@material-ui/icons/Home'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,19 +25,28 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar () {
   const classes = useStyles()
+  const history = useHistory()
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.homeButton} color="inherit" aria-label="home">
+          <IconButton edge="start" className={classes.homeButton} color="inherit" aria-label="home" component={RouterLink} to="/">
             <HomeIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             🐬 Aihe Book 📚
           </Typography>
           <IfAuthenticated>
-            <Button color="inherit" component={RouterLink} to="#" onClick={logOff}>Log Off</Button>
+            <Button color="inherit"
+              component={RouterLink}
+              to='/'
+              onClick={() => {
+                logOff(() => history.push('/'))
+              }}
+            >
+          Log Off
+            </Button>
           </IfAuthenticated>
           <IfNotAuthenticated>
             <Button color="inherit" component={RouterLink} to="/signup">Sign Up</Button>

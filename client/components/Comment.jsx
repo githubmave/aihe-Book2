@@ -1,8 +1,9 @@
 /* eslint-disable promise/catch-or-return */
 import React from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
-import CommentForm from './CommentForm'
+import Box from '@material-ui/core/Box'
 
+import CommentForm from './CommentForm'
 import { deleteComment } from '../apis/comments'
 
 export default class Comments extends React.Component {
@@ -35,22 +36,25 @@ export default class Comments extends React.Component {
           <Route
             path={`/posts/${postId}`}
             render={props => (
-              <div className="comment" key={comment.id}>
-                <p>
-                  <span className="comment-content">{comment.comment}</span>
-                  <span className="comment-date">Date Posted: {new Date(comment.datePosted).toDateString()}</span>
+              <Box color='white' bgcolor="info.main" p={1} border={2} borderColor='white' marginBottom={1}>
+                <div className="comment" key={comment.id}>
+                  <p>
+                    <span className="comment-content">{comment.comment}</span>
+                    <p></p>
+                    <span className="comment-date">Date Posted: {new Date(comment.datePosted).toDateString()}</span>
+                    <p></p>
+                    <Link to={`/posts/${postId}/comments/${comment.id}`}>
+                      <button className='pure-button'>Edit</button>
+                    </Link>
 
-                  <Link to={`/posts/${postId}/comments/${comment.id}`}>
-                    <button className='pure-button'>Edit</button>
-                  </Link>
-
-                  <button
-                    className='pure-button'
-                    onClick={this.deleteComment}>
-                    Delete
-                  </button>
-                </p>
-              </div>
+                    <button
+                      className='pure-button'
+                      onClick={this.deleteComment}>
+                      Delete
+                    </button>
+                  </p>
+                </div>
+              </Box>
             )}
           />
         </Switch>

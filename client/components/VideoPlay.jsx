@@ -37,9 +37,9 @@ const VideoNames = (props) => {
           if (video.video_name === name) {
             YouTubeGetID(video.video_link)
             return (
-              <li key={i}>
+              <p key={i}>
                 <YouTube videoId={youtubeID} opts={opts} />
-              </li>
+              </p>
             )
           }
         })}

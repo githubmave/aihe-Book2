@@ -1,32 +1,39 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-// import { saveVideo } from '../actions/videos'
+import { makeStyles } from '@material-ui/core/styles'
+import FormControl from '@material-ui/core/FormControl'
+import FormHelperText from '@material-ui/core/FormHelperText'
+import InputLabel from '@material-ui/core/InputLabel'
+import Input from '@material-ui/core/Input'
+import Button from '@material-ui/core/Button'
+import SaveIcon from '@material-ui/icons/Save'
+import Radio from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormLabel from '@material-ui/core/FormLabel'
+
+import { connect } from 'react-redux'
 import { postVideo } from '../apis/videos'
 
 class AddVideo extends React.Component {
-  // state = {
-  //   title: '',
-  //   link: '',
-  //   category: ''
-  // }
-
   state = {
     video_name: '',
     video_link: '',
     video_category: ''
   }
-  // press a category button 'auth'
-  // update the category state (line 10) to 'auth'
-  // when you submit, it will pass the data through saveVideo as this.state.category
 
-  // handleTitleChange = (e) => {
-  //   this.setState({ title: e.target.value })
-  // }
-
-  // handleLinkChange = (e) => {
-  //   this.setState({ link: e.target.value })
-  // }
+  useStyles = makeStyles((theme) => ({
+    root: {
+      margin: theme.spacing(1),
+      minWidth: 120
+    },
+    button: {
+      margin: theme.spacing(2)
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2)
+    }
+  }))
 
   handleChange = (e) => {
     const { name, value } = e.target
@@ -34,17 +41,6 @@ class AddVideo extends React.Component {
       [name]: value
     })
   }
-
-  // handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   const action = saveVideo(
-  //     this.state.title,
-  //     this.state.link,
-  //     this.state.category
-  //   )
-  //   this.props.dispatch(action)
-  //   this.setState({ title: '', link: '' })
-  // }
 
   handleSubmit = (e) => {
     e.preventDefault()
@@ -59,39 +55,51 @@ class AddVideo extends React.Component {
   render () {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            <p> Video Name:</p>
-            <input type = "text" name = "video_name"
-            // onChange={this.handleTitleChange}
-              onChange={this.handleChange}
-              value={this.state.video_name}
+        <form onSubmit={ this.handleSubmit } autoComplete="off">
+          <FormControl className={ this.useStyles.root } required>
+            <InputLabel htmlFor="video_name">Video Name</InputLabel>
+            <Input id="video_name"
+              name="video_name"
+              onChange={ this.handleChange }
+              value={ this.state.video_name }
               className="new-video"
             />
-          </label>
-
-          <label>
-            <p> Video Link</p>
-            <input type = "text" name = "video_link"
-            // onChange={this.handleLinkChange}
-              onChange={this.handleChange}
-              value={this.state.video_link}
+            <FormHelperText>Required</FormHelperText>
+          </FormControl>
+          <p></p>
+          <FormControl className={ this.useStyles.root } required>
+            <InputLabel htmlFor="video_link">Video Link</InputLabel>
+            <Input id="video_link"
+              name="video_link"
+              onChange={ this.handleChange }
+              value={ this.state.video_link }
               className="new-video"
             />
-          </label>
-
-          <label>
-            <p>Video category</p>
-            <input type = "text" name = "video_category"
-              // onChange={this.handleLinkChange}
-              onChange={this.handleChange}
-              value={this.state.video_category}
-              className="new-video"
-            />
-          </label>
-
-          <input type = 'submit' value = "Add video"/>
-
+            <FormHelperText>Required</FormHelperText>
+          </FormControl>
+          <p></p>
+          <FormControl className={ this.useStyles.root } required>
+            <FormLabel htmlFor="video_category">Video Category</FormLabel>
+            <RadioGroup aria-label="video-category" name="video_category" value={ this.state.video_category } onChange={ this.handleChange }>
+              <FormControlLabel value="auth" control={ <Radio /> } label="auth" />
+              <FormControlLabel value="react" control={ <Radio /> } label="react" />
+              <FormControlLabel value="express" control={ <Radio /> } label="express" />
+            </RadioGroup>
+            <FormHelperText>Required</FormHelperText>
+          </FormControl>
+          <p></p>
+          <FormControl>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              size="large"
+              className={ this.useStyles.button }
+              startIcon={ <SaveIcon /> }
+            >
+              Save video
+            </Button>
+          </FormControl>
         </form>
       </>
     )
