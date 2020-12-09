@@ -6,7 +6,22 @@ import Login from './Login'
 import Nav from './Nav'
 import TabNav from './TabNav'
 import SignUp from './SignUp'
-import Footer from './Footer'
+import Typography from '@material-ui/core/Typography'
+import Link from '@material-ui/core/Link'
+import Box from '@material-ui/core/Box'
+
+function Copyright () {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://www.youtube.com/watch?v=oHg5SJYRHA0">
+        Jayden, Kienan, Lukin and Mave
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  )
+}
 export default class App extends React.Component {
   render () {
     return (
@@ -24,7 +39,9 @@ export default class App extends React.Component {
           </IfAuthenticated>
           <IfNotAuthenticated>
           </IfNotAuthenticated>
-          <Footer />
+          <Box mt={5}>
+            <Copyright />
+          </Box>
         </Router>
       </>
     )
