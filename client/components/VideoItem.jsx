@@ -7,7 +7,7 @@ const VideoItem = (props) => {
   console.log('name from Route: ', name)
   return (
     <div>
-      <h1>it is a video item</h1>
+      <p>Click to view</p>
       <ul>
         {props.videos.map((video, i) => {
           if (video.video_name === name) {

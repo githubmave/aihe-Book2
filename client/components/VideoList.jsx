@@ -17,10 +17,11 @@ class VideoList extends React.Component {
   }
 
   render () {
+    let catList = ['auth','react','express']
     console.log('videos from videoList', this.props.videos)
     return (
       <>
-        <ul>
+        {/* <ul>
           {this.props.videos.map((video, i) => (
             <li key={i}>
               {' '}
@@ -30,7 +31,20 @@ class VideoList extends React.Component {
               </Link>
             </li>
           ))}
+        </ul> */}
+        <ul>
+          {catList.map((category, i) => (
+            <li key={i}>
+              {' '}
+              <Link to={`/videos/${category}`}>
+                {' '}
+                {category}
+              </Link>
+            </li>
+          ))}
         </ul>
+
+
 
         {/* <VideoNames /> */}
       </>
