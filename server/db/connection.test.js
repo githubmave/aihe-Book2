@@ -17,7 +17,7 @@ describe('listRepos', () => {
   test('lists the repos', () => {
     expect.assertions(2)
     return listRepos(connection).then((repos) => {
-      expect(repos).toHaveLength(3)
+      expect(repos).toHaveLength(57)
       expect(repos[0].repo_name).toEqual('dog-tinder')
       return null
     })
@@ -28,7 +28,7 @@ describe('list videos', () => {
   test('returns a single video from seed', () => {
     expect.assertions(2)
     return getVideos(connection).then((vids) => {
-      expect(vids).toHaveLength(6)
+      expect(vids).toHaveLength(16)
       expect(vids[0].video_name).toEqual('authentication')
       return null
     })
