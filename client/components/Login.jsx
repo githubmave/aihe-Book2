@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import { signIn, isAuthenticated } from 'authenticare/client'
 
 import { baseApiUrl as baseUrl } from '../config'

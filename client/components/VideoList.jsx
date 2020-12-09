@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom'
 
 import { receiveVideos } from '../actions/videos'
 import { fetchVideos } from '../apis/videos'
+import Container from '@material-ui/core/Container'
 
 import VideoNames from './VideoNames'
 import VideoPlay from './VideoPlay'
@@ -22,19 +23,21 @@ class VideoList extends React.Component {
 
   render () {
     return (
-      <Router>
-        <h1>Videos</h1>
-        <Route path="/videos/:category" component={VideoNames} />
-        <Route path="/videos/:category/:name" component={VideoPlay} />
-        <AddVideo />
-        <ul>
-          {this.categoryList.map((video, i) => (
-            <li key={i}>
-              <Link to={`/videos/${video}`}>{video}</Link>
-            </li>
-          ))}
-        </ul>
-      </Router>
+      <Container maxWidth="sm">
+        <Router>
+          <h1>Videos</h1>
+          <Route path="/videos/:category" component={VideoNames} />
+          <Route path="/videos/:category/:name" component={VideoPlay} />
+          <AddVideo />
+          <ul>
+            {this.categoryList.map((video, i) => (
+              <li key={i}>
+                <Link to={`/videos/${video}`}>{video}</Link>
+              </li>
+            ))}
+          </ul>
+        </Router>
+      </Container>
     )
   }
 }

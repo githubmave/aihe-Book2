@@ -6,7 +6,6 @@ import Login from './Login'
 import Nav from './Nav'
 import TabNav from './TabNav'
 import SignUp from './SignUp'
-
 export default class App extends React.Component {
   render () {
     return (
@@ -23,7 +22,6 @@ export default class App extends React.Component {
             </div>
           </IfAuthenticated>
           <IfNotAuthenticated>
-            <Login />
           </IfNotAuthenticated>
         </Router>
       </>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink, useHistory } from 'react-router-dom'
 import { logOff } from 'authenticare/client'
 import { IfAuthenticated, IfNotAuthenticated } from './Auth'
 
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ButtonAppBar () {
   const classes = useStyles()
+  const history = useHistory()
 
   return (
     <div className={classes.root}>
@@ -37,7 +38,15 @@ export default function ButtonAppBar () {
             🐬 Aihe Book 📚
           </Typography>
           <IfAuthenticated>
-            <Button color="inherit" component={RouterLink} to="/login" onClick={logOff}>Log Off</Button>
+            <Button color="inherit"
+              component={RouterLink}
+              to='/'
+              onClick={() => {
+                logOff(() => history.push('/'))
+              }}
+            >
+          Log Off
+            </Button>
           </IfAuthenticated>
           <IfNotAuthenticated>
             <Button color="inherit" component={RouterLink} to="/signup">Sign Up</Button>

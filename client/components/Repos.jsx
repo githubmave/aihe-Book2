@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Repo from './Repo'
 import { getAllRepos } from '../apis/repos'
+import Container from '@material-ui/core/Container'
 
 import AddRepo from './AddRepo'
 
@@ -18,7 +19,7 @@ class Repos extends React.Component {
 
    render () {
      return (
-       <>
+       <Container maxWidth="sm">
          <h1>Repos</h1>
          <ul>
            {this.props.repos.map((repo) => {
@@ -26,7 +27,7 @@ class Repos extends React.Component {
            })}
          </ul>
          <AddRepo />
-       </>
+       </Container>
      )
    }
 }
