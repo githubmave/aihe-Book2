@@ -7,6 +7,7 @@ const VideoNames = (props) => {
   return (
     <div>
       <ul>
+        <li>List of {category} lectures</li>
         {props.videos.map((video, i) => {
           if (video.video_category === category) {
             return (
