@@ -8,7 +8,8 @@ const db = require('../db/videodb')
 
 router.post('/', getTokenDecoder(), (req, res) => {
   const newVideo = req.body
-  db.addVideo(newVideo)
+  const user = req.user
+  db.addVideo(newVideo, user)
     .then((video) => res.status(201).json(video))
     .catch((err) => res.status(500).send(err.message))
 })
