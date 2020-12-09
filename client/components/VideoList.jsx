@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 
 import { receiveVideos } from '../actions/videos'
 import { fetchVideos } from '../apis/videos'
-// import VideoNames from './VideoNames'
 
 class VideoList extends React.Component {
   componentDidMount () {
     fetchVideos()
+    // eslint-disable-next-line no-console
       // eslint-disable-next-line promise/always-return
       .then((videoData) => {
         this.props.dispatch(receiveVideos(videoData))
@@ -17,7 +17,6 @@ class VideoList extends React.Component {
   }
 
   render () {
-    console.log('videos from videoList', this.props.videos)
     return (
       <>
         <ul>
@@ -31,8 +30,6 @@ class VideoList extends React.Component {
             </li>
           ))}
         </ul>
-
-        {/* <VideoNames /> */}
       </>
     )
   }
