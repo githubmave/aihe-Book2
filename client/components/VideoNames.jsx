@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 
 const VideoNames = (props) => {
   const { category } = useParams()
-  console.log('category is: ', category)
-
   return (
     <div>
       <ul>
@@ -13,11 +11,9 @@ const VideoNames = (props) => {
           if (video.video_category === category) {
             return (
               <li key={i}>
-                {' '}
                 <Link
                   to={`/videos/${video.video_category}/${video.video_name}`}
                 >
-                  {' '}
                   {video.video_name}
                 </Link>
               </li>

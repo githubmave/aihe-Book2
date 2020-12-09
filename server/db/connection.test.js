@@ -28,7 +28,7 @@ describe('list videos', () => {
   test('returns a single video from seed', () => {
     expect.assertions(2)
     return getVideos(connection).then((vids) => {
-      expect(vids).toHaveLength(2)
+      expect(vids).toHaveLength(16)
       expect(vids[0].video_name).toEqual('authentication')
       return null
     })

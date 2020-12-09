@@ -1,53 +1,47 @@
 import React from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
 
-import Nav from './Nav'
-import VideoList from './VideoList'
-import VideoItem from './VideoItem'
-import VideoNames from './VideoNames'
-import Repos from './Repos'
-import Forum from './Forum'
-import SignUp from './SignUp'
-import Login from './Login'
+import AddRepo from './AddRepo'
+import AddVideo from './AddVideo'
 import { IfAuthenticated, IfNotAuthenticated } from './Auth'
+import Forum from './Forum'
+import Login from './Login'
+import Nav from './Nav'
+import Repos from './Repos'
+import SignUp from './SignUp'
+import VideoList from './VideoList'
+import VideoNames from './VideoNames'
+import VideoPlay from './VideoPlay'
 
 export default class App extends React.Component {
   render () {
     return (
       <>
         <Router>
-
-          <div className='Navigation'>
-            <Route path='/' component={ Nav } />
-            <Route path='/signup' component={ SignUp } />
-            <Route path='/login' component={ Login } />
+          <div className="Navigation">
+            <Route path="/" component={Nav} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/login" component={Login} />
           </div>
-          <div>
-            <h1>Repos</h1>
-            <Repos />
-          </div>
-          <div>
-            <h1>Videos</h1>
-            <VideoList />
-            <Route path="/videos/:category" component={VideoNames} />
-            <Route path="/videos/:category/:name" component={VideoItem} />
-          </div>
-          <div>
-            <h1>Forum</h1>
-            <Forum />
-            <IfAuthenticated>
-              <div>
-                <Repos />
-              </div>
-              <div>
-                <VideoList />
-                <Route path="/videos/:category" component={ VideoNames } />
-                <Route path="/videos/:category/:name" component={ VideoItem } />
-              </div>
-            </IfAuthenticated>
-            <IfNotAuthenticated>
-            </IfNotAuthenticated>
-          </div>
+          <IfAuthenticated>
+            <div>
+              <h1>Repos</h1>
+              <Repos />
+              <AddRepo />
+            </div>
+            <div>
+              <h1>Videos</h1>
+              <VideoList />
+              <Route path="/videos/:category" component={VideoNames} />
+              <Route path="/videos/:category/:name" component={VideoPlay} />
+              <AddVideo />
+            </div>
+            <div>
+              <h1>Forum</h1>
+              <Forum />
+            </div>
+          </IfAuthenticated>
+          <IfNotAuthenticated></IfNotAuthenticated>
         </Router>
       </>
     )

@@ -8,15 +8,21 @@ class Repos extends React.Component {
     getAllRepos(this.props.dispatch)
   }
 
-  render () {
-    return (
-      <ul>
-        {this.props.repos.map((repo) => {
-          return <Repo key={repo.id} repo={repo} />
-        })}
-      </ul>
-    )
-  }
+   refresh = (e) => {
+     e.preventDefault()
+     // addRepo(this.state)
+     getAllRepos(this.props.dispatch)
+   }
+
+   render () {
+     return (
+       <ul>
+         {this.props.repos.map((repo) => {
+           return <Repo key={repo.id} repo={repo} />
+         })}
+       </ul>
+     )
+   }
 }
 
 const mapStateToProps = (state) => {
